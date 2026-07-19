@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CafeExterior } from "@/components/scene/CafeExterior";
 import { CafeInterior } from "@/components/scene/CafeInterior";
+import bellSound from "@/assets/bell-ring.mp3.asset.json";
 
 type Scene = "exterior" | "transition" | "interior";
 
@@ -22,20 +23,32 @@ export const Route = createFileRoute("/")({
 
 function Cafe() {
   const [scene, setScene] = useState<Scene>("exterior");
+  const bellRef = useRef<HTMLAudioElement | null>(null);
+
+  const chime = () => {
+    const a = bellRef.current;
+    if (!a) return;
+    a.currentTime = 0;
+    a.volume = 0.6;
+    a.play().catch(() => {});
+  };
 
   const enter = () => {
+    chime();
     setScene("transition");
     // let the door-chime overlay linger, then settle into the interior
     window.setTimeout(() => setScene("interior"), 1400);
   };
 
   const leave = () => {
+    chime();
     setScene("transition");
     window.setTimeout(() => setScene("exterior"), 1000);
   };
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-cream text-ink" style={{ fontFamily: "var(--font-body)" }}>
+      <audio ref={bellRef} src={bellSound.url} preload="auto" />
       <AnimatePresence mode="wait">
         {scene === "exterior" && (
           <motion.div
