@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import cafeExterior from "@/assets/cafe-exterior.png";
 import lofiTrack from "@/assets/lofi-nemuko.mp3.asset.json";
+import meowSound from "@/assets/cat-meow.mp3.asset.json";
 
 type Props = { onEnter: () => void };
 
@@ -21,6 +22,25 @@ export function CafeExterior({ onEnter }: Props) {
       a.play().catch(() => {});
     }
   }, [muted]);
+
+  useEffect(() => {
+    const meow = new Audio(meowSound.url);
+    meow.volume = 0.7;
+    const play = () => {
+      meow.play().catch(() => {});
+      window.removeEventListener("pointerdown", play);
+      window.removeEventListener("keydown", play);
+    };
+    // try immediately; if browser blocks autoplay, wait for first interaction
+    meow.play().catch(() => {
+      window.addEventListener("pointerdown", play, { once: true });
+      window.addEventListener("keydown", play, { once: true });
+    });
+    return () => {
+      window.removeEventListener("pointerdown", play);
+      window.removeEventListener("keydown", play);
+    };
+  }, []);
 
   const petals = useMemo(
     () =>
