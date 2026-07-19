@@ -33,13 +33,13 @@ export function CafeInterior({ onLeave }: Props) {
         }}
       />
 
-      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center px-4 pb-10 pt-6">
+      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center justify-center px-4 py-12">
         {/* Camera-settle framing */}
         <motion.div
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full max-w-[1200px]"
+          className="relative mx-auto w-full max-w-[1080px]"
         >
           {/* Painted interior backdrop */}
           <motion.img
