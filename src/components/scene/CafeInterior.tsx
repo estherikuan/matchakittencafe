@@ -15,9 +15,10 @@ type MenuItem = {
 
 const MENU: MenuItem[] = [
   { id: "chaday", title: "chaday.app", sub: "web application for matcha enthusiasts", href: "https://chaday.app", external: true },
-  { id: "portal", title: "Portal Courtyard", sub: "web development for local bnb" },
-  { id: "case1", title: "Case Study №1", sub: "brewing soon" },
+  { id: "portal", title: "Portal Courtyard", sub: "web development for local bnb", href: "https://portalcourtyard.com/", external: true },
   { id: "about", title: "About the barista", sub: "a little note from me" },
+  { id: "email", title: "Email", sub: "estherikuan@yahoo.com", href: "mailto:estherikuan@yahoo.com", external: true },
+  { id: "linkedin", title: "LinkedIn", sub: "esther-kuan", href: "https://www.linkedin.com/in/esther-kuan/", external: true },
 ];
 
 export function CafeInterior({ onLeave }: Props) {
@@ -203,14 +204,14 @@ export function CafeInterior({ onLeave }: Props) {
             >
               {"\n"}
             </motion.p>
-            <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2" style={{ marginLeft: "18px", marginTop: "18px" }}>
+            <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2 sm:grid-rows-3 sm:grid-flow-col" style={{ marginLeft: "18px", marginTop: "18px" }}>
               {MENU.map((m, i) => (
                 <motion.li
                   key={m.id}
                   initial={{ opacity: 0, x: -6 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.5 + i * 0.12, duration: 0.5 }}
-                  style={m.id === "portal" || m.id === "about" ? { marginLeft: "18px" } : undefined}
+                  style={m.id === "about" || m.id === "email" || m.id === "linkedin" ? { marginLeft: "18px" } : undefined}
                 >
                   <button
                     onClick={() =>
