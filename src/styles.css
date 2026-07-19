@@ -4,6 +4,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Storybook matcha café palette */
+@theme inline {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-hand: "Caveat", "Kalam", cursive;
+  --font-body: "Nunito", ui-sans-serif, system-ui;
+  --color-cream: var(--cream);
+  --color-parchment: var(--parchment);
+  --color-matcha: var(--matcha);
+  --color-matcha-deep: var(--matcha-deep);
+  --color-wood: var(--wood);
+  --color-wood-deep: var(--wood-deep);
+  --color-sakura: var(--sakura);
+  --color-lantern: var(--lantern);
+  --color-ink: var(--ink);
+}
+
 /*
  * Design system definition.
  *
@@ -63,6 +79,17 @@
 
 :root {
   --radius: 0.625rem;
+  /* Warm storybook tokens */
+  --cream: oklch(0.965 0.022 85);
+  --parchment: oklch(0.93 0.03 82);
+  --matcha: oklch(0.68 0.08 135);
+  --matcha-deep: oklch(0.42 0.07 138);
+  --wood: oklch(0.58 0.07 55);
+  --wood-deep: oklch(0.38 0.06 45);
+  --sakura: oklch(0.87 0.055 15);
+  --lantern: oklch(0.85 0.14 75);
+  --ink: oklch(0.28 0.04 60);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
