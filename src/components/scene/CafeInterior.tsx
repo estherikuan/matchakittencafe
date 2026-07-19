@@ -186,31 +186,6 @@ export function CafeInterior({ onLeave }: Props) {
             animate={{ rotate: [-0.6, 0.6, -0.6] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
           />
-
-          {/* Clean dessert labels — overlaid on the display case to guarantee correct spelling */}
-          {[
-            { text: "Matcha Cookie", left: "63.5%", top: "63.5%" },
-            { text: "Mochi Donut", left: "86.5%", top: "63.5%" },
-            { text: "Dorayaki", left: "63.5%", top: "78.5%" },
-            { text: ["Matcha", "Roll Cake"], left: "77.5%", top: "78.5%" },
-            { text: ["Sakura", "Mochi"], left: "89.5%", top: "78.5%" },
-          ].map((label, i) => (
-            <div
-              key={i}
-              className="pointer-events-none absolute -translate-x-1/2 rounded-[3px] bg-[oklch(0.97_0.01_90)] px-1.5 py-[2px] text-center leading-tight text-[oklch(0.28_0.03_60)] shadow-[0_1px_2px_rgba(60,40,20,0.15)]"
-              style={{
-                left: label.left,
-                top: label.top,
-                fontFamily: "var(--font-body)",
-                fontSize: "clamp(7px, 0.85vw, 11px)",
-                letterSpacing: "0.04em",
-              }}
-            >
-              {Array.isArray(label.text)
-                ? label.text.map((line, j) => <div key={j}>{line}</div>)
-                : label.text}
-            </div>
-          ))}
         </motion.div>
 
         {/* Bottom bar: hint + leave */}
