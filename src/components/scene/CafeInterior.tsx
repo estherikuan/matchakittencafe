@@ -143,13 +143,14 @@ export function CafeInterior({ onLeave }: Props) {
             >
               {"\n"}
             </motion.p>
-            <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2" style={{ marginLeft: "18px" }}>
+            <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2" style={{ marginLeft: "18px", marginTop: "18px" }}>
               {MENU.map((m, i) => (
                 <motion.li
                   key={m.id}
                   initial={{ opacity: 0, x: -6 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.5 + i * 0.12, duration: 0.5 }}
+                  style={m.id === "portal" || m.id === "about" ? { marginLeft: "18px" } : undefined}
                 >
                   <button
                     onClick={() =>
