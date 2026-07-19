@@ -14,7 +14,7 @@ type MenuItem = {
 
 const MENU: MenuItem[] = [
   { id: "chaday", title: "chaday.app", sub: "web application for matcha enthusiasts", href: "https://chaday.app", external: true },
-  { id: "portal", title: "Portal Courtyard", sub: "seasonal blend" },
+  { id: "portal", title: "Portal Courtyard", sub: "web development for local bnb" },
   { id: "case1", title: "Case Study №1", sub: "brewing soon" },
   { id: "about", title: "About the barista", sub: "a little note from me" },
 ];
