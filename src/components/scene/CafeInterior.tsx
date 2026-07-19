@@ -58,9 +58,9 @@ export function CafeInterior({ onLeave }: Props) {
             aria-hidden
             className="pointer-events-none absolute"
             style={{
-              left: "44%",
-              top: "3%",
-              width: "16%",
+              left: "40%",
+              top: "2%",
+              width: "18%",
               height: "22%",
               background:
                 "radial-gradient(circle, oklch(0.92 0.14 80 / 0.55) 0%, oklch(0.85 0.12 75 / 0.15) 45%, transparent 70%)",
@@ -75,7 +75,7 @@ export function CafeInterior({ onLeave }: Props) {
           <div
             aria-hidden
             className="pointer-events-none absolute"
-            style={{ left: "26%", top: "48%", width: "10%", height: "22%" }}
+            style={{ left: "42%", top: "55%", width: "12%", height: "20%" }}
           >
             {[0, 1, 2].map((i) => (
               <motion.span
@@ -123,10 +123,10 @@ export function CafeInterior({ onLeave }: Props) {
           <div
             className="absolute grid gap-2 text-left"
             style={{
-              left: "6%",
-              top: "5%",
-              width: "36%",
-              height: "30%",
+              left: "5%",
+              top: "10%",
+              width: "32%",
+              height: "32%",
             }}
           >
             <motion.p
@@ -182,7 +182,7 @@ export function CafeInterior({ onLeave }: Props) {
           <motion.div
             aria-hidden
             className="pointer-events-none absolute"
-            style={{ left: "22%", top: "38%", width: "18%", height: "30%" }}
+            style={{ left: "36%", top: "28%", width: "22%", height: "45%" }}
             animate={{ rotate: [-0.6, 0.6, -0.6] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
           />
