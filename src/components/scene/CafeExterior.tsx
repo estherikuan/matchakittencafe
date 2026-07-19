@@ -159,7 +159,7 @@ export function CafeExterior({ onEnter }: Props) {
               }}
             >
               <p className="text-xs uppercase tracking-[0.35em] text-matcha-deep/70">
-                today's menu
+                ON THE MENU
               </p>
               <div className="mx-auto mt-3 h-px w-12 bg-wood/40" />
               <ul className="mt-5 space-y-4">
