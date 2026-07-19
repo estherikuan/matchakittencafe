@@ -266,13 +266,13 @@ export function CafeInterior({ onLeave }: Props) {
           >
             <span className="sr-only">Follow Matcha Kitten on Instagram</span>
             <span
-              className="pointer-events-none absolute left-1/2 -top-4 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-100 group-focus-visible:opacity-100"
+              className="pointer-events-none absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:ml-6 group-hover:opacity-100 group-focus-visible:opacity-100"
               style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
             >
-              psst — follow me on instagram ↗
+              Make matcha with me! ↗
               <span
                 aria-hidden
-                className="absolute left-1/2 top-full -translate-x-1/2 -translate-y-1/2 rotate-45 h-3 w-3 bg-parchment"
+                className="absolute right-full top-1/2 -translate-y-1/2 translate-x-1/2 rotate-45 h-3 w-3 bg-parchment"
               />
             </span>
           </motion.a>
@@ -288,9 +288,9 @@ export function CafeInterior({ onLeave }: Props) {
               className="pointer-events-none absolute left-1/2 -top-3 -translate-x-1/2 -translate-y-full flex items-center gap-3 whitespace-nowrap rounded-2xl bg-parchment px-4 py-3 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-100 group-focus-visible:opacity-100"
               style={{ fontFamily: "var(--font-hand)", fontSize: "1rem" }}
             >
-              <span className="mr-1">tools I build with →</span>
-              <img src={lovableIcon.url} alt="Lovable" className="h-8 w-8 rounded-md" />
-              <img src={claudeIcon.url} alt="Claude" className="h-8 w-8 rounded-md" />
+            <span className="mr-1">tools I build with →</span>
+            <img src={lovableIcon.url} alt="Lovable" className="h-8 w-8 shrink-0 rounded-md" />
+            <img src={claudeIcon.url} alt="Claude" className="h-8 w-8 shrink-0 rounded-md" />
               <span
                 aria-hidden
                 className="absolute left-1/2 top-full -translate-x-1/2 -translate-y-1/2 rotate-45 h-3 w-3 bg-parchment"
