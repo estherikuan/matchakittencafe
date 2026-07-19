@@ -99,7 +99,7 @@ function CafeExterior() {
           <button
             onClick={() => setEntering(true)}
             aria-label="Step inside the café"
-            className="group absolute left-[41%] top-[52%] h-[38%] w-[14%] rounded-t-[40%] focus:outline-none"
+            className="group absolute left-[27%] top-[32%] h-[45%] w-[18%] rounded-t-[30%] focus:outline-none"
           >
             <span className="pointer-events-none absolute inset-0 rounded-t-[40%] bg-lantern/0 transition duration-500 group-hover:bg-lantern/25 group-focus-visible:bg-lantern/30" />
             <motion.span
@@ -116,7 +116,7 @@ function CafeExterior() {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Read today's menu"
             aria-expanded={menuOpen}
-            className="group absolute left-[6%] top-[68%] h-[26%] w-[13%] focus:outline-none"
+            className="group absolute left-[13%] top-[55%] h-[28%] w-[16%] focus:outline-none"
           >
             <span className="pointer-events-none absolute inset-0 rounded-lg ring-0 ring-lantern/60 transition duration-500 group-hover:ring-4 group-focus-visible:ring-4" />
             <motion.span
