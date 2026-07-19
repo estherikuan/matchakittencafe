@@ -183,9 +183,10 @@ export function CafeInterior({ onLeave }: Props) {
             className="absolute grid gap-2 text-left"
             style={{
               left: "6%",
-              top: "5%",
+              top: "12%",
               width: "36%",
               height: "30%",
+              alignContent: "center",
             }}
           >
             <motion.p
