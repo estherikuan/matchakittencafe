@@ -77,13 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Matcha Kitten — a cozy portfolio café" },
-      { name: "description", content: "Step into a hand-painted matcha café — the portfolio of Matcha Kitten. Featuring chaday.app, Portal Courtyard, and more." },
+      { title: "Matcha Kitten's Café — Portfolio" },
+      { name: "description", content: "A cozy hand-painted matcha café. Step inside to explore Matcha Kitten's work." },
       { name: "author", content: "Matcha Kitten" },
-      { property: "og:title", content: "Matcha Kitten — a cozy portfolio café" },
-      { property: "og:description", content: "A storybook matcha café you can wander through." },
+      { property: "og:title", content: "Matcha Kitten's Café — Portfolio" },
+      { property: "og:description", content: "A cozy hand-painted matcha café. Step inside to explore Matcha Kitten's work." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Matcha Kitten's Café — Portfolio" },
+      { name: "twitter:description", content: "A cozy hand-painted matcha café. Step inside to explore Matcha Kitten's work." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3069b212-ec3d-4f38-90dd-e17bc3b16e52/id-preview-8ba67659--20ed4e9b-ac49-4e18-ba22-6c244454c4ad.lovable.app-1784442278160.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3069b212-ec3d-4f38-90dd-e17bc3b16e52/id-preview-8ba67659--20ed4e9b-ac49-4e18-ba22-6c244454c4ad.lovable.app-1784442278160.png" },
     ],
     links: [
       {
