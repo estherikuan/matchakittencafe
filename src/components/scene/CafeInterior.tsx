@@ -186,6 +186,17 @@ export function CafeInterior({ onLeave }: Props) {
             animate={{ rotate: [-0.6, 0.6, -0.6] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
           />
+
+          {/* Back outside — vertically centered on the left edge of the image */}
+          <motion.button
+            onClick={onLeave}
+            initial={{ opacity: 0, x: -8 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 2, duration: 0.8 }}
+            className="absolute left-0 top-1/2 -translate-y-1/2 rounded-r-full border border-l-0 border-parchment/30 bg-ink/40 px-4 py-2 text-xs uppercase tracking-widest text-parchment/80 backdrop-blur-sm transition hover:bg-parchment/10"
+          >
+            ← back outside
+          </motion.button>
         </motion.div>
 
         {/* Bottom bar: hint + leave */}
@@ -193,17 +204,11 @@ export function CafeInterior({ onLeave }: Props) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
-          className="mt-6 flex w-full max-w-[1200px] flex-wrap items-center justify-between gap-3 text-parchment/80"
+          className="mt-6 flex w-full max-w-[1200px] flex-wrap items-center justify-center gap-3 text-parchment/80"
         >
           <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.15rem" }}>
             welcome in — take a seat, order from the menu
           </p>
-          <button
-            onClick={onLeave}
-            className="rounded-full border border-parchment/30 px-4 py-1.5 text-xs uppercase tracking-widest transition hover:bg-parchment/10"
-          >
-            ← back outside
-          </button>
         </motion.div>
       </section>
 
