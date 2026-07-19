@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import cafeInterior from "@/assets/cafe-interior.png";
 import lofiTrack from "@/assets/cutie-japan-lofi.mp3.asset.json";
+import lovableIcon from "@/assets/lovable-icon.webp.asset.json";
+import claudeIcon from "@/assets/claude-icon.webp.asset.json";
 
 type Props = { onLeave: () => void };
 
@@ -274,6 +276,27 @@ export function CafeInterior({ onLeave }: Props) {
               />
             </span>
           </motion.a>
+
+          {/* Bowls & cup on second shelf — reveal the tools I build with */}
+          <div
+            className="group absolute z-20"
+            style={{ left: "58%", top: "28%", width: "32%", height: "12%" }}
+            tabIndex={0}
+            aria-label="Tools I build with"
+          >
+            <span
+              className="pointer-events-none absolute left-1/2 -top-3 -translate-x-1/2 -translate-y-full flex items-center gap-3 whitespace-nowrap rounded-2xl bg-parchment px-4 py-3 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-100 group-focus-visible:opacity-100"
+              style={{ fontFamily: "var(--font-hand)", fontSize: "1rem" }}
+            >
+              <span className="mr-1">tools I build with →</span>
+              <img src={lovableIcon.url} alt="Lovable" className="h-8 w-8 rounded-md" />
+              <img src={claudeIcon.url} alt="Claude" className="h-8 w-8 rounded-md" />
+              <span
+                aria-hidden
+                className="absolute left-1/2 top-full -translate-x-1/2 -translate-y-1/2 rotate-45 h-3 w-3 bg-parchment"
+              />
+            </span>
+          </div>
 
         </motion.div>
 
