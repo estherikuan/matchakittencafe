@@ -32,12 +32,12 @@ export function CafeExterior({ onEnter }: Props) {
         }}
       />
 
-      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center justify-end px-4 pb-6 pt-10 sm:pt-16">
+      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center justify-center px-4 py-16">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3 }}
-          className="pointer-events-none absolute left-1/2 top-6 z-20 -translate-x-1/2 text-center sm:top-10"
+          className="pointer-events-none absolute left-1/2 top-8 z-20 -translate-x-1/2 text-center sm:top-12"
         >
           <p className="text-[0.7rem] uppercase tracking-[0.4em] text-matcha-deep/70">
             welcome to
@@ -54,7 +54,7 @@ export function CafeExterior({ onEnter }: Props) {
           initial={{ opacity: 0, scale: 0.98, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full max-w-[1200px]"
+          className="relative mx-auto w-full max-w-[980px]"
         >
           <motion.img
             src={cafeExterior}
