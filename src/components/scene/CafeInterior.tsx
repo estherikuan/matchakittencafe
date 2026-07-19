@@ -238,14 +238,29 @@ export function CafeInterior({ onLeave }: Props) {
             </ul>
           </div>
 
-          {/* Kitten whisking — subtle bob */}
-          <motion.div
-            aria-hidden
-            className="pointer-events-none absolute"
+          {/* Kitten whisking — subtle bob + Instagram tooltip on hover */}
+          <motion.a
+            href="https://www.instagram.com/matcha.kitten"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Matcha Kitten on Instagram"
+            className="group absolute z-20"
             style={{ left: "22%", top: "38%", width: "18%", height: "30%" }}
             animate={{ rotate: [-0.6, 0.6, -0.6] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          />
+          >
+            <span className="sr-only">Follow Matcha Kitten on Instagram</span>
+            <span
+              className="pointer-events-none absolute left-1/2 -top-4 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-100 group-focus-visible:opacity-100"
+              style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
+            >
+              psst — follow me on instagram ↗
+              <span
+                aria-hidden
+                className="absolute left-1/2 top-full -translate-x-1/2 -translate-y-1/2 rotate-45 h-3 w-3 bg-parchment"
+              />
+            </span>
+          </motion.a>
 
         </motion.div>
 
