@@ -206,22 +206,22 @@ export function CafeInterior({ onLeave }: Props) {
             </motion.p>
             <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2 sm:grid-rows-3" style={{ marginLeft: "18px", marginTop: "18px" }}>
               {MENU.map((m, i) => {
-                const colStart =
-                  m.id === "chaday" || m.id === "portal" ? 1 : 2;
-                const rowStart =
-                  m.id === "chaday" || m.id === "about"
-                    ? 1
-                    : m.id === "portal" || m.id === "email"
-                    ? 2
-                    : 3;
+                const pos: Record<string, string> = {
+                  chaday: "sm:col-start-1 sm:row-start-1",
+                  portal: "sm:col-start-1 sm:row-start-2",
+                  about: "sm:col-start-2 sm:row-start-1",
+                  email: "sm:col-start-2 sm:row-start-2",
+                  linkedin: "sm:col-start-2 sm:row-start-3",
+                };
+                const inRightCol = m.id === "about" || m.id === "email" || m.id === "linkedin";
                 return (
                 <motion.li
                   key={m.id}
                   initial={{ opacity: 0, x: -6 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.5 + i * 0.12, duration: 0.5 }}
-                  className={`sm:col-start-${colStart} sm:row-start-${rowStart}`}
-                  style={colStart === 2 ? { marginLeft: "18px" } : undefined}
+                  className={pos[m.id]}
+                  style={inRightCol ? { marginLeft: "18px" } : undefined}
                 >
                   <button
                     onClick={() =>
