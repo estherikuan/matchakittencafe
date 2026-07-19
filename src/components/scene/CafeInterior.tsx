@@ -41,7 +41,7 @@ export function CafeInterior({ onLeave }: Props) {
         onClick={() => setMuted((m) => !m)}
         aria-label={muted ? "Play café music" : "Pause café music"}
         aria-pressed={!muted}
-        className="group absolute right-6 top-6 z-30 flex flex-col items-center gap-2 focus:outline-none"
+        className="group fixed bottom-6 right-6 z-30 flex flex-col items-center gap-2 focus:outline-none"
       >
         <motion.span
           className="pointer-events-none absolute -inset-3 rounded-full"
@@ -204,14 +204,24 @@ export function CafeInterior({ onLeave }: Props) {
             >
               {"\n"}
             </motion.p>
-            <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2 sm:grid-rows-3 sm:grid-flow-col" style={{ marginLeft: "18px", marginTop: "18px" }}>
-              {MENU.map((m, i) => (
+            <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2 sm:grid-rows-3" style={{ marginLeft: "18px", marginTop: "18px" }}>
+              {MENU.map((m, i) => {
+                const colStart =
+                  m.id === "chaday" || m.id === "portal" ? 1 : 2;
+                const rowStart =
+                  m.id === "chaday" || m.id === "about"
+                    ? 1
+                    : m.id === "portal" || m.id === "email"
+                    ? 2
+                    : 3;
+                return (
                 <motion.li
                   key={m.id}
                   initial={{ opacity: 0, x: -6 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.5 + i * 0.12, duration: 0.5 }}
-                  style={m.id === "about" || m.id === "email" || m.id === "linkedin" ? { marginLeft: "18px" } : undefined}
+                  className={`sm:col-start-${colStart} sm:row-start-${rowStart}`}
+                  style={colStart === 2 ? { marginLeft: "18px" } : undefined}
                 >
                   <button
                     onClick={() =>
@@ -236,7 +246,8 @@ export function CafeInterior({ onLeave }: Props) {
                     </span>
                   </button>
                 </motion.li>
-              ))}
+                );
+              })}
             </ul>
           </div>
 
