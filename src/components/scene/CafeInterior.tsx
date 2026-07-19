@@ -285,7 +285,7 @@ export function CafeInterior({ onLeave }: Props) {
             aria-label="Tools I build with"
           >
             <span
-              className="pointer-events-none absolute left-1/2 -top-3 -translate-x-1/2 -translate-y-full flex items-center gap-3 whitespace-nowrap rounded-2xl bg-parchment px-4 py-3 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-100 group-focus-visible:opacity-100"
+            className="pointer-events-none absolute left-1/2 -top-3 -translate-x-1/2 -translate-y-full flex w-max items-center gap-3 whitespace-nowrap rounded-2xl bg-parchment py-3 pl-5 pr-6 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-100 group-focus-visible:opacity-100"
               style={{ fontFamily: "var(--font-hand)", fontSize: "1rem" }}
             >
             <span className="mr-1">tools I build with →</span>
