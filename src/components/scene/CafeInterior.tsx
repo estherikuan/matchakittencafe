@@ -143,7 +143,7 @@ export function CafeInterior({ onLeave }: Props) {
             >
               {"\n"}
             </motion.p>
-            <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2">
+            <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2" style={{ marginLeft: "18px" }}>
               {MENU.map((m, i) => (
                 <motion.li
                   key={m.id}
@@ -160,16 +160,16 @@ export function CafeInterior({ onLeave }: Props) {
                     className="group block w-full rounded-md px-2 py-1 text-left text-parchment/95 transition hover:bg-parchment/10 focus:bg-parchment/10 focus:outline-none"
                     style={{ fontFamily: "var(--font-hand)" }}
                   >
-                    <span className="flex items-baseline gap-1.5 text-[clamp(0.85rem,1.3vw,1.15rem)] leading-tight">
+                    <span className="flex items-baseline gap-1.5 text-[clamp(1.0625rem,1.625vw,1.4375rem)] leading-tight">
                       <span className="text-parchment/60">·</span>
                       <span className="underline decoration-parchment/0 decoration-1 underline-offset-4 transition-all group-hover:decoration-parchment/60">
                         {m.title}
                       </span>
                       {m.external && (
-                        <span className="text-[0.65rem] text-parchment/50">↗</span>
+                        <span className="text-[0.8125rem] text-parchment/50">↗</span>
                       )}
                     </span>
-                    <span className="ml-3 block text-[0.7rem] text-parchment/55">
+                    <span className="ml-3 block text-[0.875rem] text-parchment/55">
                       {m.sub}
                     </span>
                   </button>
@@ -187,16 +187,6 @@ export function CafeInterior({ onLeave }: Props) {
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
           />
 
-          {/* Back outside — vertically centered on the left edge of the image */}
-          <motion.button
-            onClick={onLeave}
-            initial={{ opacity: 0, x: -8 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 2, duration: 0.8 }}
-            className="absolute left-0 top-1/2 -translate-y-1/2 rounded-r-full border border-l-0 border-parchment/30 bg-ink/40 px-4 py-2 text-xs uppercase tracking-widest text-parchment/80 backdrop-blur-sm transition hover:bg-parchment/10"
-          >
-            ← back outside
-          </motion.button>
         </motion.div>
 
         {/* Bottom bar: hint + leave */}
@@ -206,7 +196,13 @@ export function CafeInterior({ onLeave }: Props) {
           transition={{ delay: 2, duration: 0.8 }}
           className="mt-6 flex w-full max-w-[1200px] flex-wrap items-center justify-center gap-3 text-parchment/80"
         >
-          <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.15rem" }}>
+          <button
+            onClick={onLeave}
+            className="rounded-full border border-parchment/30 bg-ink/40 px-4 py-2 text-xs uppercase tracking-widest text-parchment/80 backdrop-blur-sm transition hover:bg-parchment/10"
+          >
+            ← back outside
+          </button>
+          <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.4375rem" }}>
             welcome in — take a seat, order from the menu
           </p>
         </motion.div>
