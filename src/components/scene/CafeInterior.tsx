@@ -141,7 +141,7 @@ export function CafeInterior({ onLeave }: Props) {
                 textTransform: "uppercase",
               }}
             >
-              — please order —
+              {"\n"}
             </motion.p>
             <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2">
               {MENU.map((m, i) => (
