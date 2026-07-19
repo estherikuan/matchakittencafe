@@ -61,12 +61,50 @@ export function CafeExterior({ onEnter }: Props) {
       <audio ref={audioRef} src={lofiTrack.url} loop preload="auto" />
       <button
         onClick={() => setMuted((m) => !m)}
-        aria-label={muted ? "Unmute café music" : "Mute café music"}
+        aria-label={muted ? "Play café music" : "Pause café music"}
         aria-pressed={!muted}
-        className="absolute right-4 top-4 z-30 flex items-center gap-2 rounded-full bg-parchment/85 px-3 py-1.5 text-xs uppercase tracking-widest text-wood-deep shadow-md backdrop-blur-sm transition hover:bg-parchment"
+        className="group absolute right-6 top-6 z-30 flex flex-col items-center gap-2 focus:outline-none"
       >
-        <span aria-hidden>{muted ? "🔇" : "🎵"}</span>
-        <span>{muted ? "play music" : "mute"}</span>
+        <motion.span
+          className="pointer-events-none absolute -inset-3 rounded-full"
+          animate={
+            muted
+              ? { boxShadow: ["0 0 0 0 rgba(120,90,40,0.35)", "0 0 0 14px rgba(120,90,40,0)"] }
+              : { boxShadow: "0 0 0 0 rgba(0,0,0,0)" }
+          }
+          transition={{ duration: 1.8, repeat: muted ? Infinity : 0, ease: "easeOut" }}
+        />
+        <motion.span
+          aria-hidden
+          className="relative flex h-16 w-16 items-center justify-center rounded-full shadow-[0_10px_20px_rgba(30,20,10,0.35)] ring-1 ring-black/40 transition-transform group-hover:scale-105"
+          style={{
+            background:
+              "repeating-radial-gradient(circle at center, oklch(0.18 0.01 60) 0px, oklch(0.18 0.01 60) 2px, oklch(0.13 0.01 60) 3px, oklch(0.13 0.01 60) 4px)",
+          }}
+          animate={{ rotate: muted ? 0 : 360 }}
+          transition={
+            muted
+              ? { duration: 0.4, ease: "easeOut" }
+              : { duration: 4, repeat: Infinity, ease: "linear" }
+          }
+        >
+          <span
+            className="flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold uppercase tracking-tight text-parchment shadow-inner"
+            style={{
+              background:
+                "radial-gradient(circle at 30% 30%, oklch(0.72 0.16 25), oklch(0.5 0.18 20))",
+            }}
+          >
+            {muted ? "▶" : "♪"}
+          </span>
+          <span className="absolute h-1.5 w-1.5 rounded-full bg-parchment/90" />
+        </motion.span>
+        <span
+          className="rounded-full bg-parchment/90 px-2 py-0.5 text-[0.6rem] uppercase tracking-[0.25em] text-wood-deep shadow"
+          style={{ fontFamily: "var(--font-hand)", letterSpacing: "0.15em" }}
+        >
+          {muted ? "press play" : "now spinning"}
+        </span>
       </button>
       <div
         className="absolute inset-0 -z-10"
