@@ -1,12 +1,26 @@
 import { motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import cafeExterior from "@/assets/cafe-exterior.png";
+import lofiTrack from "@/assets/lofi-nemuko.mp3.asset.json";
 
 type Props = { onEnter: () => void };
 
 export function CafeExterior({ onEnter }: Props) {
   const [peek, setPeek] = useState(false);
+  const [muted, setMuted] = useState(true);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const a = audioRef.current;
+    if (!a) return;
+    a.volume = 0.35;
+    if (muted) {
+      a.pause();
+    } else {
+      a.play().catch(() => {});
+    }
+  }, [muted]);
 
   const petals = useMemo(
     () =>
@@ -24,6 +38,16 @@ export function CafeExterior({ onEnter }: Props) {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
+      <audio ref={audioRef} src={lofiTrack.url} loop preload="auto" />
+      <button
+        onClick={() => setMuted((m) => !m)}
+        aria-label={muted ? "Unmute café music" : "Mute café music"}
+        aria-pressed={!muted}
+        className="absolute right-4 top-4 z-30 flex items-center gap-2 rounded-full bg-parchment/85 px-3 py-1.5 text-xs uppercase tracking-widest text-wood-deep shadow-md backdrop-blur-sm transition hover:bg-parchment"
+      >
+        <span aria-hidden>{muted ? "🔇" : "🎵"}</span>
+        <span>{muted ? "play music" : "mute"}</span>
+      </button>
       <div
         className="absolute inset-0 -z-10"
         style={{
