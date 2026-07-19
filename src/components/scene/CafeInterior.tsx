@@ -204,7 +204,7 @@ export function CafeInterior({ onLeave }: Props) {
             >
               {"\n"}
             </motion.p>
-            <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2 sm:grid-rows-3 sm:auto-rows-min" style={{ marginLeft: "18px", marginTop: "18px" }}>
+            <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2" style={{ marginLeft: "18px", marginTop: "18px", gridTemplateRows: "repeat(3, auto)" }}>
               {MENU.map((m, i) => {
                 const pos: Record<string, string> = {
                   chaday: "sm:col-start-1 sm:row-start-1",
