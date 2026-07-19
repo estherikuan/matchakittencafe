@@ -328,12 +328,16 @@ export function CafeInterior({ onLeave }: Props) {
                 {selected.title}
               </h3>
               <p className="mt-1 text-sm text-wood/70">{selected.sub}</p>
-              <p
+              <div
                 className="mt-6 text-wood-deep/80"
                 style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
               >
-                *the kitten pours you a cup — this case study is still steeping. come back soon.*
-              </p>
+                *hands over a matcha*<br />
+                Hi there, I am Esther aka Matcha Kitten.<br />
+                <div className="mt-2">
+                  I design and build products using AI tools to go from 0 →1. Right now I am building Chaday — the matcha database and journal app for enthusiasts.
+                </div>
+              </div>
               <button
                 onClick={() => setSelected(null)}
                 className="mt-6 rounded-full border border-wood/30 px-4 py-1.5 text-xs uppercase tracking-widest text-wood-deep transition hover:bg-wood/10"
