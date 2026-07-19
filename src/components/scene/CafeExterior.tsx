@@ -167,13 +167,13 @@ export function CafeExterior({ onEnter }: Props) {
                   <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }} className="text-wood-deep">
                     chaday.app
                   </p>
-                  <p className="text-xs text-wood/70">— today's special</p>
+                  <p className="text-xs text-wood/70">— web application</p>
                 </li>
                 <li>
                   <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }} className="text-wood-deep">
                     Portal Courtyard
                   </p>
-                  <p className="text-xs text-wood/70">— seasonal blend</p>
+                  <p className="text-xs text-wood/70">— web development</p>
                 </li>
                 <li>
                   <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }} className="text-wood-deep">
