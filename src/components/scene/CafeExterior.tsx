@@ -164,15 +164,27 @@ export function CafeExterior({ onEnter }: Props) {
               <div className="mx-auto mt-3 h-px w-12 bg-wood/40" />
               <ul className="mt-5 space-y-4">
                 <li>
-                  <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }} className="text-wood-deep">
+                  <a
+                    href="https://chaday.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }}
+                    className="text-wood-deep underline decoration-matcha-deep/40 decoration-1 underline-offset-4 transition hover:decoration-matcha-deep"
+                  >
                     chaday.app
-                  </p>
+                  </a>
                   <p className="text-xs text-wood/70">— web application</p>
                 </li>
                 <li>
-                  <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }} className="text-wood-deep">
+                  <a
+                    href="https://portalcourtyard.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }}
+                    className="text-wood-deep underline decoration-matcha-deep/40 decoration-1 underline-offset-4 transition hover:decoration-matcha-deep"
+                  >
                     Portal Courtyard
-                  </p>
+                  </a>
                   <p className="text-xs text-wood/70">— web development</p>
                 </li>
                 <li>
