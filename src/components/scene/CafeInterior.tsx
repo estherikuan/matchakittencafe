@@ -368,7 +368,7 @@ export function CafeInterior({ onLeave }: Props) {
                       src={estherPhoto.url}
                       alt="Esther, aka Matcha Kitten"
                       className="absolute inset-0 h-full w-full object-cover"
-                      style={{ clipPath: "url(#flowerClip)" }}
+                      style={{ clipPath: "url(#flowerClip)", objectPosition: "50% 20%" }}
                     />
                   </div>
                 </div>
