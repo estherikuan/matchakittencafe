@@ -72,12 +72,12 @@ export function CafeExterior({ onEnter }: Props) {
         }}
       />
 
-      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center justify-center px-1 py-8 pb-32 sm:px-2 sm:py-10 sm:pb-32 lg:px-4 lg:py-16 lg:pb-36">
+      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center justify-center px-1 py-8 pb-32 sm:px-2 sm:py-10 sm:pb-32 lg:px-4 lg:py-16 lg:pb-36 portrait:justify-start portrait:pt-16 portrait:pb-20">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3 }}
-          className="pointer-events-none absolute left-1/2 top-8 z-20 -translate-x-1/2 text-center sm:top-12"
+          className="pointer-events-none absolute left-1/2 top-8 z-20 -translate-x-1/2 text-center sm:top-12 portrait:top-3"
         >
           <motion.p
             initial={{ opacity: 0 }}
@@ -112,7 +112,7 @@ export function CafeExterior({ onEnter }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.0, delay: 2.9, ease: "easeOut" }}
-          className="relative mx-auto w-full max-w-[980px]"
+          className="relative mx-auto w-full max-w-[980px] portrait:mt-2"
         >
           <motion.img
             src={cafeExterior}
@@ -159,13 +159,13 @@ export function CafeExterior({ onEnter }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 1 }}
-          className="mt-6 text-center text-wood-deep/70"
+          className="mt-6 text-center text-wood-deep/70 portrait:mt-3"
           style={{ fontFamily: "var(--font-hand)", fontSize: "1.2rem" }}
         >
           tap the door to come in · peek at the chalkboard for today's specials
         </motion.p>
 
-        <div className="mt-10 flex w-full justify-center">
+        <div className="mt-10 flex w-full justify-center portrait:mt-4">
           <button
             onClick={() => setMuted((m) => !m)}
             aria-label={muted ? "Play café music" : "Pause café music"}
