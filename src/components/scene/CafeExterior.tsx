@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import cafeExterior from "@/assets/cafe-exterior.png";
 import lofiTrack from "@/assets/lofi-nemuko.mp3.asset.json";
 import meowSound from "@/assets/cat-meow.mp3.asset.json";
@@ -129,7 +130,10 @@ export function CafeExterior({ onEnter }: Props) {
               className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-parchment/95 px-3 py-1 text-wood-deep shadow-md transition-transform duration-300 group-hover:scale-105 group-focus-visible:scale-105"
               style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
             >
-              step inside →
+              <span className="inline-flex items-center gap-1">
+                step inside
+                <ArrowRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
+              </span>
             </span>
           </button>
 
@@ -281,7 +285,10 @@ export function CafeExterior({ onEnter }: Props) {
                 onClick={onEnter}
                 className="mt-6 rounded-full bg-matcha-deep px-5 py-2 text-xs uppercase tracking-widest text-parchment shadow-md transition hover:brightness-110"
               >
-                come inside →
+                <span className="inline-flex items-center justify-center gap-1.5">
+                  come inside
+                  <ArrowRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
+                </span>
               </button>
             </motion.div>
           </motion.div>
