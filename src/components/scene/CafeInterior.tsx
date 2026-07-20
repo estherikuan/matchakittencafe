@@ -185,7 +185,7 @@ export function CafeInterior({ onLeave }: Props) {
 
           {/* Menu overlay — sits on the blank chalkboard in the painting */}
           <div
-            className="absolute grid gap-2 text-left"
+            className="absolute grid gap-2 text-left overflow-hidden"
             style={{
               left: "6%",
               top: "12%",
@@ -208,7 +208,7 @@ export function CafeInterior({ onLeave }: Props) {
             >
               {"\n"}
             </motion.p>
-            <ul className="mt-1 grid grid-cols-1 gap-1 lg:grid-cols-2" style={{ marginLeft: "18px", marginTop: "18px" }}>
+            <ul className="mt-1 grid grid-cols-1 gap-0.5 sm:gap-1 lg:grid-cols-2 ml-1 sm:ml-[18px] mt-1 sm:mt-[18px]">
               {MENU.map((m, i) => {
                 const pos: Record<string, string> = {
                   chaday: "lg:col-start-1 lg:row-start-1",
@@ -230,10 +230,10 @@ export function CafeInterior({ onLeave }: Props) {
                         ? window.open(m.href, "_blank", "noopener,noreferrer")
                         : setSelected(m)
                     }
-                    className="group block w-full rounded-md px-2 py-1 text-left text-parchment/95 transition hover:bg-parchment/10 focus:bg-parchment/10 focus:outline-none"
+                    className="group block w-full rounded-md px-1 py-0.5 sm:px-2 sm:py-1 text-left text-parchment/95 transition hover:bg-parchment/10 focus:bg-parchment/10 focus:outline-none"
                   >
                     <span
-                      className="flex items-baseline gap-1.5 text-[clamp(1.0625rem,1.625vw,1.4375rem)] leading-tight"
+                      className="flex items-baseline gap-1 sm:gap-1.5 text-[clamp(0.6rem,2.2vw,1.4375rem)] leading-tight"
                       style={{ fontFamily: "var(--font-hand)" }}
                     >
                       <span className="text-parchment/60">·</span>
@@ -241,11 +241,11 @@ export function CafeInterior({ onLeave }: Props) {
                         {m.title}
                       </span>
                       {m.external && (
-                        <span className="text-[0.8125rem] text-parchment/50">↗</span>
+                        <span className="text-[0.65rem] sm:text-[0.8125rem] text-parchment/50">↗</span>
                       )}
                     </span>
                     <span
-                      className="ml-3 block text-[0.875rem] text-parchment/55"
+                      className="ml-2 sm:ml-3 block text-[clamp(0.55rem,1.5vw,0.875rem)] leading-tight text-parchment/55"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
                       {m.sub}
