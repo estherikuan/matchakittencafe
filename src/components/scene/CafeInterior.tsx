@@ -190,7 +190,7 @@ export function CafeInterior({ onLeave }: Props) {
                     className="group block w-full rounded-md px-1 py-0.5 sm:px-2 sm:py-1 text-left text-parchment/95 transition hover:bg-parchment/10 focus:bg-parchment/10 focus:outline-none"
                   >
                     <span
-                      className="flex items-baseline gap-1 sm:gap-1.5 text-[clamp(0.6rem,2.2vw,1.4375rem)] portrait:text-[clamp(1rem,3.6vw,1.6rem)] leading-tight"
+                      className="flex items-baseline gap-1 sm:gap-1.5 text-[clamp(0.6rem,2.2vw,1.4375rem)] portrait:text-[clamp(0.8rem,2.4vw,1.15rem)] leading-tight"
                       style={{ fontFamily: "var(--font-hand)" }}
                     >
                       <span className="text-parchment/60">·</span>
@@ -206,7 +206,7 @@ export function CafeInterior({ onLeave }: Props) {
                       )}
                     </span>
                     <span
-                      className="ml-2 sm:ml-3 block text-[clamp(0.55rem,1.5vw,0.875rem)] portrait:text-[clamp(0.75rem,2.2vw,1rem)] leading-tight text-parchment/55"
+                      className="ml-2 sm:ml-3 block text-[clamp(0.55rem,1.5vw,0.875rem)] portrait:text-[clamp(0.6rem,1.5vw,0.8rem)] leading-tight text-parchment/55"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
                       {m.sub}
