@@ -294,6 +294,17 @@ export function CafeInterior({ onLeave }: Props) {
             </span>
           </div>
 
+          </div>
+
+          {/* Back outside — stays anchored to the frame, not the zoomed scene */}
+          <button
+            onClick={onLeave}
+            aria-label="Head back outside"
+            className="group absolute bottom-4 left-4 z-30 rounded-full bg-parchment/95 px-4 py-1.5 text-wood-deep shadow-md transition hover:bg-parchment hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
+            style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
+          >
+            ← back outside 🐾
+          </button>
         </motion.div>
 
         {/* Bottom bar: hint + leave */}
