@@ -119,7 +119,7 @@ export function CafeExterior({ onEnter }: Props) {
             alt="A hand-painted matcha café with a kitten barista at the door"
             width={1600}
             height={1200}
-            className="pointer-events-none block h-auto w-full select-none rounded-2xl drop-shadow-[0_30px_60px_rgba(80,60,30,0.25)] portrait:h-full portrait:w-auto portrait:max-w-none portrait:-translate-x-[10%]"
+            className="pointer-events-none block h-auto w-full select-none rounded-2xl drop-shadow-[0_30px_60px_rgba(80,60,30,0.25)] portrait:h-full portrait:w-auto portrait:max-w-none portrait:-translate-x-[10%] sm:portrait:translate-x-0"
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             draggable={false}
