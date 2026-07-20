@@ -308,7 +308,7 @@ export function CafeInterior({ onLeave }: Props) {
             ← BACK OUTSIDE&nbsp;🐾
           </button>
           <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.4375rem" }}>
-            welcome in — take a seat, order from the menu
+            welcome in — take a seat, order from the menu, spin the record for the vibes!
           </p>
         </motion.div>
       </section>
