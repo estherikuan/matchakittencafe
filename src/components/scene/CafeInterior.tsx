@@ -5,6 +5,7 @@ import lofiTrack from "@/assets/cutie-japan-lofi.mp3.asset.json";
 import lovableIcon from "@/assets/lovable-icon.webp.asset.json";
 import claudeIcon from "@/assets/claude-icon.webp.asset.json";
 import recordVideo from "@/assets/record-player.webm.asset.json";
+import estherPhoto from "@/assets/esther.jpeg.asset.json";
 
 type Props = { onLeave: () => void };
 
@@ -344,6 +345,34 @@ export function CafeInterior({ onLeave }: Props) {
                 {selected.title}
               </h3>
               <p className="mt-1 text-sm text-wood/70">{selected.sub}</p>
+              {selected.id === "about" && (
+                <div className="mt-5 flex justify-center">
+                  <svg width="0" height="0" className="absolute" aria-hidden>
+                    <defs>
+                      <clipPath id="flowerClip" clipPathUnits="objectBoundingBox">
+                        <path d="M0.5,0.02 C0.62,0.02 0.7,0.11 0.68,0.22 C0.79,0.18 0.9,0.24 0.92,0.36 C0.94,0.46 0.88,0.55 0.79,0.58 C0.88,0.64 0.92,0.75 0.86,0.85 C0.79,0.95 0.66,0.96 0.58,0.88 C0.56,0.97 0.48,1.0 0.4,0.97 C0.31,0.94 0.27,0.85 0.3,0.77 C0.2,0.82 0.09,0.77 0.06,0.66 C0.03,0.56 0.09,0.46 0.19,0.43 C0.09,0.38 0.05,0.27 0.11,0.18 C0.18,0.08 0.31,0.08 0.38,0.16 C0.39,0.07 0.44,0.02 0.5,0.02 Z" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <div className="relative h-40 w-40">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 40% 35%, oklch(0.86 0.09 145), oklch(0.72 0.11 140))",
+                        clipPath: "url(#flowerClip)",
+                        transform: "scale(1.06)",
+                      }}
+                    />
+                    <img
+                      src={estherPhoto.url}
+                      alt="Esther, aka Matcha Kitten"
+                      className="absolute inset-0 h-full w-full object-cover"
+                      style={{ clipPath: "url(#flowerClip)" }}
+                    />
+                  </div>
+                </div>
+              )}
               <div
                 className="mt-6 text-wood-deep/80"
                 style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
