@@ -231,7 +231,7 @@ export function CafeInterior({ onLeave }: Props) {
           >
             <span className="sr-only">Follow Matcha Kitten on Instagram</span>
             <span
-              className="pointer-events-none absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:ml-6 group-hover:opacity-100 group-focus-visible:opacity-100 portrait:left-auto portrait:right-[-6%] portrait:top-[-4%] portrait:ml-0 portrait:translate-x-0 portrait:-translate-y-full portrait:group-hover:ml-0 portrait:opacity-100"
+              className="pointer-events-none absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:ml-6 group-hover:opacity-100 group-focus-visible:opacity-100 portrait:left-auto portrait:right-[-14%] portrait:top-[-4%] portrait:ml-0 portrait:translate-x-0 portrait:-translate-y-full portrait:group-hover:ml-0 portrait:opacity-100"
               style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
             >
               Make matcha with me! ↗
