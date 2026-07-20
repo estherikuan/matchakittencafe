@@ -130,7 +130,13 @@ export function CafeExterior({ onEnter }: Props) {
             style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontWeight: 500, transformOrigin: "50% 50%" }}
             className="mt-1 text-3xl leading-none text-wood-deep sm:text-5xl"
           >
-            ☁︎ Matcha Kitten's Café ☁︎
+            <motion.span
+              className="inline-block"
+              animate={{ y: [0, -9, 0] }}
+              transition={{ duration: 3.5, ease: "easeInOut", repeat: Infinity, delay: 2.9 }}
+            >
+              ☁︎ Matcha Kitten's Café ☁︎
+            </motion.span>
           </motion.h1>
         </motion.div>
 
