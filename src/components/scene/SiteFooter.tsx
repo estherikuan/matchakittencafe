@@ -8,7 +8,7 @@ export function SiteFooter() {
   return (
     <footer
       className="fixed bottom-4 left-1/2 z-30 -translate-x-1/2"
-      style={{ fontFamily: "var(--font-hand)" }}
+      style={{ fontFamily: "var(--font-body)" }}
     >
       <ul className="flex items-center gap-4 rounded-full bg-parchment/80 px-5 py-1.5 text-wood-deep shadow-[0_6px_18px_rgba(30,20,10,0.18)] backdrop-blur-sm">
         {LINKS.map((l, i) => (
