@@ -4,7 +4,7 @@ import cafeInterior from "@/assets/cafe-interior.png";
 import lofiTrack from "@/assets/cutie-japan-lofi.mp3.asset.json";
 import lovableIcon from "@/assets/lovable-icon.webp.asset.json";
 import claudeIcon from "@/assets/claude-icon.webp.asset.json";
-import recordVideo from "@/assets/record-player.webm.asset.json";
+import recordImage from "@/assets/record-player.webp.asset.json";
 import estherPhoto from "@/assets/esther.jpeg.asset.json";
 
 type Props = { onLeave: () => void };
