@@ -370,7 +370,7 @@ export function CafeInterior({ onLeave }: Props) {
                 </div>
               )}
               <div
-                className="mt-6 text-wood-deep/80"
+                className="mt-8 text-wood-deep/80"
                 style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
               >
                 *hands over a matcha*<br />
