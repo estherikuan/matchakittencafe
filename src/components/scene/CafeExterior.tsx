@@ -133,7 +133,7 @@ export function CafeExterior({ onEnter }: Props) {
             <motion.span
               className="inline-block"
               animate={{ y: [0, -9, 0] }}
-              transition={{ duration: 3.5, ease: "easeInOut", repeat: Infinity, delay: 2.9 }}
+              transition={{ duration: 2.5, ease: "easeInOut", repeat: Infinity, delay: 2.9 }}
             >
               ☁︎ Matcha Kitten's Café ☁︎
             </motion.span>
