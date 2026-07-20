@@ -72,12 +72,12 @@ export function CafeExterior({ onEnter }: Props) {
         }}
       />
 
-      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center justify-center px-1 py-8 pb-32 sm:px-2 sm:py-10 sm:pb-32 lg:px-4 lg:py-16 lg:pb-36 portrait:justify-start portrait:pt-16 portrait:pb-20">
+      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center justify-center px-1 py-8 pb-32 sm:px-2 sm:py-10 sm:pb-32 lg:px-4 lg:py-16 lg:pb-36 portrait:justify-start portrait:pt-20 portrait:pb-10">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.3 }}
-          className="pointer-events-none absolute left-1/2 top-8 z-20 -translate-x-1/2 text-center sm:top-12 portrait:top-3"
+          className="pointer-events-none absolute left-1/2 top-8 z-20 -translate-x-1/2 text-center sm:top-12 portrait:top-4"
         >
           <motion.p
             initial={{ opacity: 0 }}
@@ -112,14 +112,14 @@ export function CafeExterior({ onEnter }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.0, delay: 2.9, ease: "easeOut" }}
-          className="relative mx-auto w-full max-w-[980px] portrait:mt-2"
+          className="relative mx-auto w-full max-w-[980px] portrait:mt-16 portrait:flex portrait:h-[60vh] portrait:w-auto portrait:max-w-none portrait:items-center portrait:justify-center"
         >
           <motion.img
             src={cafeExterior}
             alt="A hand-painted matcha café with a kitten barista at the door"
             width={1600}
             height={1200}
-            className="pointer-events-none block h-auto w-full select-none rounded-2xl drop-shadow-[0_30px_60px_rgba(80,60,30,0.25)]"
+            className="pointer-events-none block h-auto w-full select-none rounded-2xl drop-shadow-[0_30px_60px_rgba(80,60,30,0.25)] portrait:h-full portrait:w-auto portrait:max-w-none"
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             draggable={false}
