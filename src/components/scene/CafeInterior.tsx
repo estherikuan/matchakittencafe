@@ -4,6 +4,7 @@ import cafeInterior from "@/assets/cafe-interior.png";
 import lofiTrack from "@/assets/cutie-japan-lofi.mp3.asset.json";
 import lovableIcon from "@/assets/lovable-icon.webp.asset.json";
 import claudeIcon from "@/assets/claude-icon.webp.asset.json";
+import recordVideo from "@/assets/record-player.webm.asset.json";
 
 type Props = { onLeave: () => void };
 
@@ -27,13 +28,20 @@ export function CafeInterior({ onLeave }: Props) {
   const [selected, setSelected] = useState<MenuItem | null>(null);
   const [muted, setMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     const a = audioRef.current;
-    if (!a) return;
-    a.volume = 0.35;
-    if (muted) a.pause();
-    else a.play().catch(() => {});
+    const v = videoRef.current;
+    if (a) {
+      a.volume = 0.35;
+      if (muted) a.pause();
+      else a.play().catch(() => {});
+    }
+    if (v) {
+      if (muted) v.pause();
+      else v.play().catch(() => {});
+    }
   }, [muted]);
 
   return (
@@ -46,7 +54,7 @@ export function CafeInterior({ onLeave }: Props) {
         className="group fixed bottom-6 right-6 z-30 flex flex-col items-center gap-2 focus:outline-none"
       >
         <motion.span
-          className="pointer-events-none absolute -inset-3 rounded-full"
+          className="pointer-events-none absolute -inset-2 rounded-2xl"
           animate={
             muted
               ? { boxShadow: ["0 0 0 0 rgba(240,220,180,0.35)", "0 0 0 14px rgba(240,220,180,0)"] }
@@ -54,31 +62,16 @@ export function CafeInterior({ onLeave }: Props) {
           }
           transition={{ duration: 1.8, repeat: muted ? Infinity : 0, ease: "easeOut" }}
         />
-        <motion.span
+        <video
+          ref={videoRef}
+          src={recordVideo.url}
+          loop
+          muted
+          playsInline
+          preload="auto"
           aria-hidden
-          className="relative flex h-16 w-16 items-center justify-center rounded-full shadow-[0_10px_20px_rgba(30,20,10,0.35)] ring-1 ring-black/40 transition-transform group-hover:scale-105"
-          style={{
-            background:
-              "repeating-radial-gradient(circle at center, oklch(0.18 0.01 60) 0px, oklch(0.18 0.01 60) 2px, oklch(0.13 0.01 60) 3px, oklch(0.13 0.01 60) 4px)",
-          }}
-          animate={{ rotate: muted ? 0 : 360 }}
-          transition={
-            muted
-              ? { duration: 0.4, ease: "easeOut" }
-              : { duration: 4, repeat: Infinity, ease: "linear" }
-          }
-        >
-          <span
-            className="flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold uppercase tracking-tight text-parchment shadow-inner"
-            style={{
-              background:
-                "radial-gradient(circle at 30% 30%, oklch(0.75 0.14 145), oklch(0.5 0.15 150))",
-            }}
-          >
-            {muted ? "▶" : "♪"}
-          </span>
-          <span className="absolute h-1.5 w-1.5 rounded-full bg-parchment/90" />
-        </motion.span>
+          className="relative h-24 w-24 select-none object-contain drop-shadow-[0_10px_18px_rgba(30,20,10,0.35)] transition-transform group-hover:scale-105"
+        />
         <span
           className="rounded-full bg-parchment/90 px-2 py-0.5 text-[0.6rem] uppercase tracking-[0.25em] text-wood-deep shadow"
           style={{ fontFamily: "var(--font-hand)", letterSpacing: "0.15em" }}
