@@ -276,9 +276,9 @@ export function CafeExterior({ onEnter }: Props) {
                 </li>
                 <li>
                   <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }} className="text-wood-deep">
-                    Case Study №1
+                    FlowForger
                   </p>
-                  <p className="text-xs text-wood/70">— brewing soon</p>
+                  <p className="text-xs text-wood/70">— AI workflow tool</p>
                 </li>
               </ul>
               <button
