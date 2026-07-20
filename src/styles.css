@@ -6,9 +6,9 @@
 
 /* Storybook matcha café palette */
 @theme inline {
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-hand: "Caveat", "Kalam", cursive;
-  --font-body: "Nunito", ui-sans-serif, system-ui;
+  --font-body: "Karla", ui-sans-serif, system-ui;
   --color-cream: var(--cream);
   --color-parchment: var(--parchment);
   --color-matcha: var(--matcha);
