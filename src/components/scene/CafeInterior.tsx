@@ -222,9 +222,11 @@ export function CafeInterior({ onLeave }: Props) {
                         : setSelected(m)
                     }
                     className="group block w-full rounded-md px-2 py-1 text-left text-parchment/95 transition hover:bg-parchment/10 focus:bg-parchment/10 focus:outline-none"
-                    style={{ fontFamily: "var(--font-body)" }}
                   >
-                    <span className="flex items-baseline gap-1.5 text-[clamp(1.0625rem,1.625vw,1.4375rem)] leading-tight">
+                    <span
+                      className="flex items-baseline gap-1.5 text-[clamp(1.0625rem,1.625vw,1.4375rem)] leading-tight"
+                      style={{ fontFamily: "var(--font-hand)" }}
+                    >
                       <span className="text-parchment/60">·</span>
                       <span className="underline decoration-parchment/0 decoration-1 underline-offset-4 transition-all group-hover:decoration-parchment/60">
                         {m.title}
@@ -233,7 +235,10 @@ export function CafeInterior({ onLeave }: Props) {
                         <span className="text-[0.8125rem] text-parchment/50">↗</span>
                       )}
                     </span>
-                    <span className="ml-3 block text-[0.875rem] text-parchment/55">
+                    <span
+                      className="ml-3 block text-[0.875rem] text-parchment/55"
+                      style={{ fontFamily: "var(--font-body)" }}
+                    >
                       {m.sub}
                     </span>
                   </button>
