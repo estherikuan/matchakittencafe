@@ -231,7 +231,7 @@ export function CafeInterior({ onLeave }: Props) {
           >
             <span className="sr-only">Follow Matcha Kitten on Instagram</span>
             <span
-              className="pointer-events-none absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:ml-6 group-hover:opacity-100 group-focus-visible:opacity-100 portrait:left-auto portrait:right-[-14%] portrait:top-[-4%] portrait:ml-0 portrait:translate-x-0 portrait:-translate-y-full portrait:group-hover:ml-0 portrait:opacity-100"
+              className="pointer-events-none absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:ml-6 group-hover:opacity-100 group-focus-visible:opacity-100 portrait:left-1/2 portrait:right-auto portrait:top-0 portrait:ml-0 portrait:-translate-x-1/2 portrait:-translate-y-[calc(100%+8px)] portrait:group-hover:ml-0 portrait:opacity-100"
               style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
             >
               <span className="inline-flex items-center gap-1">
@@ -240,7 +240,7 @@ export function CafeInterior({ onLeave }: Props) {
               </span>
               <span
                 aria-hidden
-                className="absolute right-full top-1/2 -translate-y-1/2 translate-x-1/2 rotate-45 h-3 w-3 bg-parchment portrait:right-auto portrait:left-[20%] portrait:top-full portrait:-translate-x-1/2 portrait:-translate-y-1/2"
+                className="absolute right-full top-1/2 -translate-y-1/2 translate-x-1/2 rotate-45 h-3 w-3 bg-parchment portrait:right-auto portrait:left-1/2 portrait:top-full portrait:-translate-x-1/2 portrait:-translate-y-1/2"
               />
             </span>
           </motion.a>
