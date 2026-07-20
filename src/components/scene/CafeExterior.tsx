@@ -275,9 +275,15 @@ export function CafeExterior({ onEnter }: Props) {
                   <p className="text-xs text-wood/70">— web development</p>
                 </li>
                 <li>
-                  <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }} className="text-wood-deep">
+                  <a
+                    href="https://asanabuilder-ai.lovable.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }}
+                    className="text-wood-deep underline decoration-matcha-deep/40 decoration-1 underline-offset-4 transition hover:decoration-matcha-deep"
+                  >
                     FlowForger
-                  </p>
+                  </a>
                   <p className="text-xs text-wood/70">— AI workflow tool</p>
                 </li>
               </ul>
