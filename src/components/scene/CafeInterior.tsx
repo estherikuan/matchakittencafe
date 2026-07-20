@@ -165,7 +165,7 @@ export function CafeInterior({ onLeave }: Props) {
             >
               {"\n"}
             </motion.p>
-            <ul className="mt-1 grid grid-cols-1 gap-0.5 sm:gap-1 md:grid-cols-2 ml-1 sm:ml-[18px] mt-1 sm:mt-[18px]">
+            <ul className="mt-1 grid grid-cols-1 gap-x-3 gap-y-0.5 sm:gap-y-1 md:grid-cols-2 ml-1 sm:ml-[18px] mt-1 sm:mt-[18px] pr-1">
               {MENU.map((m, i) => {
                 const pos: Record<string, string> = {
                   chaday: "md:col-start-1 md:row-start-1",
@@ -173,14 +173,13 @@ export function CafeInterior({ onLeave }: Props) {
                   flowforger: "md:col-start-2 md:row-start-1",
                   about: "md:col-start-2 md:row-start-2",
                 };
-                const inRightCol = m.id === "about" || m.id === "flowforger";
                 return (
                 <motion.li
                   key={m.id}
                   initial={{ opacity: 0, x: -6 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.5 + i * 0.12, duration: 0.5 }}
-                  className={`${pos[m.id]} ${inRightCol ? "md:ml-[18px]" : ""}`}
+                  className={`${pos[m.id]} min-w-0`}
                 >
                   <button
                     onClick={() =>
