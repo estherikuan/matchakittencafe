@@ -114,26 +114,30 @@ export function CafeExterior({ onEnter }: Props) {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.1, duration: 0.5 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
             className="text-[0.7rem] uppercase tracking-[0.4em] text-matcha-deep/70"
           >
-            welcome to
+            WELCOME TO
           </motion.p>
           <motion.h1
             initial={{ scale: 3, y: "40vh", opacity: 0 }}
-            animate={{ scale: 1, y: 0, opacity: 1 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], opacity: { duration: 0.4 } }}
+            animate={{ scale: [3, 3, 1], y: ["40vh", "40vh", "0vh"], opacity: [0, 1, 1] }}
+            transition={{
+              duration: 2.9,
+              times: [0, 0.28, 1],
+              ease: [0.22, 1, 0.36, 1],
+            }}
             style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontWeight: 500, transformOrigin: "50% 50%" }}
             className="mt-1 text-3xl leading-none text-wood-deep sm:text-5xl"
           >
-            Matcha Kitten's Café
+            ☁︎ Matcha Kitten's Café ☁︎
           </motion.h1>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.0, delay: 0.9, ease: "easeOut" }}
+          transition={{ duration: 1.0, delay: 2.9, ease: "easeOut" }}
           className="relative mx-auto w-full max-w-[980px]"
         >
           <motion.img
