@@ -68,7 +68,7 @@ export function CafeExterior({ onEnter }: Props) {
         onClick={() => setMuted((m) => !m)}
         aria-label={muted ? "Play café music" : "Pause café music"}
         aria-pressed={!muted}
-        className="group fixed bottom-6 right-6 z-30 flex flex-col items-center gap-2 focus:outline-none"
+        className="group fixed bottom-24 right-1/2 translate-x-1/2 sm:bottom-6 sm:right-6 sm:translate-x-0 z-30 flex flex-col items-center gap-2 focus:outline-none"
       >
         <motion.span
           className="pointer-events-none absolute -inset-2 rounded-2xl"
