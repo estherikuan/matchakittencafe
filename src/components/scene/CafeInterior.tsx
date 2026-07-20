@@ -302,12 +302,6 @@ export function CafeInterior({ onLeave }: Props) {
           transition={{ delay: 2, duration: 0.8 }}
           className="relative mt-6 flex w-full max-w-[1080px] items-center justify-center gap-3 text-parchment/80"
         >
-          <button
-            onClick={onLeave}
-            className="absolute left-0 top-1/2 -translate-y-1/2 rounded-full border border-parchment/30 bg-ink/40 px-4 py-2 text-xs uppercase tracking-widest text-parchment/80 backdrop-blur-sm transition hover:bg-parchment/10"
-          >
-            ← BACK OUTSIDE&nbsp;🐾
-          </button>
           <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.4375rem" }}>
             welcome in — take a seat, order from the menu, spin the record for the vibes!
           </p>
