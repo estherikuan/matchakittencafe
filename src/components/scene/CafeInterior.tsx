@@ -21,6 +21,7 @@ type MenuItem = {
 const MENU: MenuItem[] = [
   { id: "chaday", title: "chaday.app", sub: "web application for matcha enthusiasts", href: "https://chaday.app", external: true },
   { id: "portal", title: "Portal Courtyard", sub: "web development for local bnb", href: "https://portalcourtyard.com/", external: true },
+  { id: "flowforger", title: "FlowForger", sub: "AI workflow tool", href: "https://asanabuilder-ai.lovable.app", external: true },
   { id: "about", title: "About the barista", sub: "a little note from me" },
 ];
 
@@ -169,9 +170,10 @@ export function CafeInterior({ onLeave }: Props) {
                 const pos: Record<string, string> = {
                   chaday: "lg:col-start-1 lg:row-start-1",
                   portal: "lg:col-start-1 lg:row-start-2",
-                  about: "lg:col-start-2 lg:row-start-1",
+                  flowforger: "lg:col-start-2 lg:row-start-1",
+                  about: "lg:col-start-2 lg:row-start-2",
                 };
-                const inRightCol = m.id === "about";
+                const inRightCol = m.id === "about" || m.id === "flowforger";
                 return (
                 <motion.li
                   key={m.id}
