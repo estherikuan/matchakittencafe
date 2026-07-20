@@ -93,17 +93,17 @@ export function CafeInterior({ onLeave }: Props) {
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-[1080px] overflow-hidden rounded-2xl portrait:flex portrait:h-[78vh] portrait:items-center portrait:justify-center"
+          className="relative mx-auto w-full max-w-[1080px] overflow-hidden rounded-2xl portrait:h-[78vh]"
         >
           {/* Zoomable scene — cropped in portrait to focus on cat + chalkboard */}
-          <div className="relative portrait:h-full portrait:aspect-[4/3] portrait:w-auto portrait:scale-[1.75] portrait:origin-[24%_26%] landscape:scale-100 transition-transform">
+          <div className="relative portrait:h-full portrait:w-full portrait:scale-[1.35] portrait:origin-[28%_34%] landscape:scale-100 transition-transform">
           {/* Painted interior backdrop */}
           <motion.img
             src={cafeInterior}
             alt="Inside the matcha café — the kitten whisks a bowl of matcha behind the counter"
             width={1600}
             height={1200}
-            className="pointer-events-none block h-auto w-full select-none rounded-2xl shadow-[0_40px_80px_rgba(30,20,10,0.45)] portrait:h-full portrait:w-full"
+            className="pointer-events-none block h-auto w-full select-none rounded-2xl shadow-[0_40px_80px_rgba(30,20,10,0.45)] portrait:h-full portrait:w-full portrait:object-cover portrait:object-[28%_34%]"
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
             draggable={false}
