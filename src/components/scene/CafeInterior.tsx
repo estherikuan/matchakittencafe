@@ -95,15 +95,16 @@ export function CafeInterior({ onLeave }: Props) {
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative mx-auto w-full max-w-[1080px] overflow-hidden rounded-2xl portrait:h-[78vh]"
         >
-          {/* Zoomable scene — cropped in portrait to focus on cat + chalkboard */}
-          <div className="relative portrait:h-full portrait:w-full portrait:scale-[1.35] portrait:origin-[28%_34%] landscape:scale-100 transition-transform">
+          {/* Zoomable scene — in portrait the image is object-cover cropped so the
+              cat + chalkboard fill the frame; overlays are repositioned to match. */}
+          <div className="relative portrait:h-full portrait:w-full landscape:scale-100">
           {/* Painted interior backdrop */}
           <motion.img
             src={cafeInterior}
             alt="Inside the matcha café — the kitten whisks a bowl of matcha behind the counter"
             width={1600}
             height={1200}
-            className="pointer-events-none block h-auto w-full select-none rounded-2xl shadow-[0_40px_80px_rgba(30,20,10,0.45)] portrait:h-full portrait:w-full portrait:object-cover portrait:object-[28%_34%]"
+            className="pointer-events-none block h-auto w-full select-none rounded-2xl shadow-[0_40px_80px_rgba(30,20,10,0.45)] portrait:h-full portrait:w-full portrait:object-cover portrait:object-[6%_0%]"
             animate={{ y: [0, -3, 0] }}
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
             draggable={false}
@@ -177,7 +178,7 @@ export function CafeInterior({ onLeave }: Props) {
 
           {/* Menu overlay — sits on the blank chalkboard in the painting */}
           <div
-            className="absolute grid gap-2 text-left overflow-hidden"
+            className="absolute grid gap-2 text-left overflow-hidden portrait:!left-[6%] portrait:!top-[12%] portrait:!w-[81%] portrait:!h-[30%]"
             style={{
               left: "6%",
               top: "12%",
@@ -255,7 +256,7 @@ export function CafeInterior({ onLeave }: Props) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit Matcha Kitten on Instagram"
-            className="group absolute z-20"
+            className="group absolute z-20 portrait:!left-[42%] portrait:!top-[38%] portrait:!w-[41%] portrait:!h-[30%]"
             style={{ left: "22%", top: "38%", width: "18%", height: "30%" }}
             animate={{ rotate: [-0.6, 0.6, -0.6] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
@@ -275,7 +276,7 @@ export function CafeInterior({ onLeave }: Props) {
 
           {/* Bowls & cup on second shelf — reveal the tools I build with */}
           <div
-            className="group absolute z-20"
+            className="group absolute z-20 portrait:hidden"
             style={{ left: "58%", top: "28%", width: "32%", height: "12%" }}
             tabIndex={0}
             aria-label="Tools I build with"
