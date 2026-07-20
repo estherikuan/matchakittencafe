@@ -374,10 +374,12 @@ export function CafeInterior({ onLeave }: Props) {
                 style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
               >
                 *hands over a matcha*<br />
+                <span style={{ fontFamily: "var(--font-body)" }}>
                 Hi there, I am Esther aka Matcha Kitten.<br />
                 <div className="mt-2">
                   I design and build products using AI tools to go from 0 →1. Right now I am building Chaday — the matcha database and journal app for enthusiasts. Before this, I spent a few years in UX design and program management — now I build my own products, with AI as a creative partner instead of a team.
                 </div>
+                </span>
               </div>
               <button
                 onClick={() => setSelected(null)}
