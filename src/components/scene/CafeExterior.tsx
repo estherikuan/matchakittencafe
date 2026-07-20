@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import cafeExterior from "@/assets/cafe-exterior.png";
 import lofiTrack from "@/assets/lofi-nemuko.mp3.asset.json";
 import meowSound from "@/assets/cat-meow.mp3.asset.json";
-import recordVideo from "@/assets/record-player.webm.asset.json";
+import recordImage from "@/assets/record-player.webp.asset.json";
 
 type Props = { onEnter: () => void };
 
@@ -12,19 +12,13 @@ export function CafeExterior({ onEnter }: Props) {
   const [peek, setPeek] = useState(false);
   const [muted, setMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     const a = audioRef.current;
-    const v = videoRef.current;
     if (a) {
       a.volume = 0.35;
       if (muted) a.pause();
       else a.play().catch(() => {});
-    }
-    if (v) {
-      if (muted) v.pause();
-      else v.play().catch(() => {});
     }
   }, [muted]);
 
@@ -181,13 +175,9 @@ export function CafeExterior({ onEnter }: Props) {
               }
               transition={{ duration: 1.8, repeat: muted ? Infinity : 0, ease: "easeOut" }}
             />
-            <video
-              ref={videoRef}
-              src={recordVideo.url}
-              loop
-              muted
-              playsInline
-              preload="auto"
+            <img
+              src={recordImage.url}
+              alt=""
               aria-hidden
               className="relative h-24 w-24 select-none object-contain drop-shadow-[0_10px_18px_rgba(30,20,10,0.35)] transition-transform group-hover:scale-105"
             />
