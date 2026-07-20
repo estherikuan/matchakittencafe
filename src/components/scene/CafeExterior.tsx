@@ -112,7 +112,7 @@ export function CafeExterior({ onEnter }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.0, delay: 2.9, ease: "easeOut" }}
-          className="relative mx-auto mt-20 w-full max-w-[980px] lg:mt-0 portrait:mt-16 portrait:flex portrait:h-[60vh] portrait:w-auto portrait:max-w-none portrait:items-center portrait:justify-center sm:portrait:block sm:portrait:h-auto sm:portrait:w-full sm:portrait:max-w-[980px]"
+          className="relative mx-auto mt-24 w-full max-w-[980px] xl:mt-0 portrait:mt-16 portrait:flex portrait:h-[60vh] portrait:w-auto portrait:max-w-none portrait:items-center portrait:justify-center sm:portrait:block sm:portrait:h-auto sm:portrait:w-full sm:portrait:max-w-[980px]"
         >
           <motion.img
             src={cafeExterior}
