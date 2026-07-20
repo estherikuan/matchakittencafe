@@ -222,7 +222,7 @@ export function CafeInterior({ onLeave }: Props) {
                         : setSelected(m)
                     }
                     className="group block w-full rounded-md px-2 py-1 text-left text-parchment/95 transition hover:bg-parchment/10 focus:bg-parchment/10 focus:outline-none"
-                    style={{ fontFamily: "var(--font-hand)" }}
+                    style={{ fontFamily: "var(--font-body)" }}
                   >
                     <span className="flex items-baseline gap-1.5 text-[clamp(1.0625rem,1.625vw,1.4375rem)] leading-tight">
                       <span className="text-parchment/60">·</span>
