@@ -197,7 +197,11 @@ export function CafeInterior({ onLeave }: Props) {
                         {m.title}
                       </span>
                       {m.external && (
-                        <span className="text-[0.65rem] sm:text-[0.8125rem] text-parchment/50">↗</span>
+                        <ArrowUpRight
+                          aria-hidden
+                          className="inline-block h-[0.9em] w-[0.9em] shrink-0 self-center text-parchment/50"
+                          strokeWidth={2}
+                        />
                       )}
                     </span>
                     <span
@@ -229,7 +233,10 @@ export function CafeInterior({ onLeave }: Props) {
               className="pointer-events-none absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:ml-6 group-hover:opacity-100 group-focus-visible:opacity-100 portrait:left-auto portrait:right-[-14%] portrait:top-[-4%] portrait:ml-0 portrait:translate-x-0 portrait:-translate-y-full portrait:group-hover:ml-0 portrait:opacity-100"
               style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
             >
-              Make matcha with me! ↗
+              <span className="inline-flex items-center gap-1">
+                Make matcha with me!
+                <ArrowUpRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
+              </span>
               <span
                 aria-hidden
                 className="absolute right-full top-1/2 -translate-y-1/2 translate-x-1/2 rotate-45 h-3 w-3 bg-parchment portrait:right-auto portrait:left-[20%] portrait:top-full portrait:-translate-x-1/2 portrait:-translate-y-1/2"
@@ -248,7 +255,10 @@ export function CafeInterior({ onLeave }: Props) {
             className="pointer-events-none absolute left-1/2 -top-3 -translate-x-1/2 -translate-y-full flex w-max items-center gap-3 whitespace-nowrap rounded-2xl bg-parchment py-3 pl-5 pr-6 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-100 group-focus-visible:opacity-100"
               style={{ fontFamily: "var(--font-hand)", fontSize: "1rem" }}
             >
-            <span className="mr-1">tools I build with →</span>
+            <span className="mr-1 inline-flex items-center gap-1">
+              tools I build with
+              <ArrowRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
+            </span>
             <img src={lovableIcon.url} alt="Lovable" className="h-8 w-8 shrink-0 rounded-md" />
             <img src={claudeIcon.url} alt="Claude" className="h-8 w-8 shrink-0 rounded-md" />
               <span
@@ -267,7 +277,10 @@ export function CafeInterior({ onLeave }: Props) {
             className="group absolute bottom-4 left-4 z-30 rounded-full bg-parchment/95 px-4 py-1.5 text-wood-deep shadow-md transition hover:bg-parchment hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
             style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
           >
-            ← back outside 🐾
+            <span className="inline-flex items-center gap-1.5">
+              <ArrowLeft aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
+              back outside 🐾
+            </span>
           </button>
         </motion.div>
 
