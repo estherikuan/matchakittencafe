@@ -93,8 +93,10 @@ export function CafeInterior({ onLeave }: Props) {
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-[1080px]"
+          className="relative mx-auto w-full max-w-[1080px] overflow-hidden rounded-2xl"
         >
+          {/* Zoomable scene — cropped in portrait to focus on cat + chalkboard */}
+          <div className="relative portrait:scale-[1.75] portrait:origin-[24%_26%] landscape:scale-100 transition-transform">
           {/* Painted interior backdrop */}
           <motion.img
             src={cafeInterior}
@@ -106,16 +108,6 @@ export function CafeInterior({ onLeave }: Props) {
             transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
             draggable={false}
           />
-
-          {/* Back outside — styled like Scene 1 tooltip pills */}
-          <button
-            onClick={onLeave}
-            aria-label="Head back outside"
-            className="group absolute bottom-4 left-4 z-20 rounded-full bg-parchment/95 px-4 py-1.5 text-wood-deep shadow-md transition hover:bg-parchment hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
-            style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
-          >
-            ← back outside 🐾
-          </button>
 
           {/* Pendant lamp warm glow — sits over the lamp in the painting */}
           <motion.div
@@ -302,6 +294,17 @@ export function CafeInterior({ onLeave }: Props) {
             </span>
           </div>
 
+          </div>
+
+          {/* Back outside — stays anchored to the frame, not the zoomed scene */}
+          <button
+            onClick={onLeave}
+            aria-label="Head back outside"
+            className="group absolute bottom-4 left-4 z-30 rounded-full bg-parchment/95 px-4 py-1.5 text-wood-deep shadow-md transition hover:bg-parchment hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
+            style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
+          >
+            ← back outside 🐾
+          </button>
         </motion.div>
 
         {/* Bottom bar: hint + leave */}
