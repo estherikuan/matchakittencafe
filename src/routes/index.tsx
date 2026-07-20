@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { CafeExterior } from "@/components/scene/CafeExterior";
 import { CafeInterior } from "@/components/scene/CafeInterior";
+import { SiteFooter } from "@/components/scene/SiteFooter";
 import bellSound from "@/assets/bell-ring.mp3.asset.json";
 
 type Scene = "exterior" | "transition" | "interior";
@@ -98,6 +99,8 @@ function Cafe() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {scene !== "transition" && <SiteFooter />}
     </main>
   );
 }
