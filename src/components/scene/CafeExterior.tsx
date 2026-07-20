@@ -96,7 +96,7 @@ export function CafeExterior({ onEnter }: Props) {
               ease: [0.22, 1, 0.36, 1],
             }}
             style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontWeight: 500, transformOrigin: "50% 50%" }}
-            className="mt-1 whitespace-nowrap text-[clamp(1.25rem,5.2vw,1.9rem)] leading-none text-wood-deep lg:text-5xl"
+            className="mt-1 whitespace-nowrap text-[clamp(1.6rem,6.4vw,3rem)] leading-none text-wood-deep lg:text-5xl"
           >
             <motion.span
               className="inline-block"
