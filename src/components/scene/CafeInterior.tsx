@@ -107,6 +107,16 @@ export function CafeInterior({ onLeave }: Props) {
             draggable={false}
           />
 
+          {/* Back outside — styled like Scene 1 tooltip pills */}
+          <button
+            onClick={onLeave}
+            aria-label="Head back outside"
+            className="group absolute bottom-4 left-4 z-20 rounded-full bg-parchment/95 px-4 py-1.5 text-wood-deep shadow-md transition hover:bg-parchment hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
+            style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
+          >
+            ← back outside 🐾
+          </button>
+
           {/* Pendant lamp warm glow — sits over the lamp in the painting */}
           <motion.div
             aria-hidden
