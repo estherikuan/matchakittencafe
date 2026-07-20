@@ -159,7 +159,7 @@ export function CafeInterior({ onLeave }: Props) {
 
             {/* Menu overlay — sits on the blank chalkboard in the painting */}
             <div
-              className="absolute grid gap-2 text-left overflow-hidden left-[6.5%] top-[8%] w-[41%] h-[32%] portrait:!left-[6%] portrait:!top-[9%] portrait:!w-[81%] portrait:!h-[26%]"
+              className="absolute grid gap-2 text-left overflow-hidden left-[6.5%] top-[8%] w-[44%] h-[32%] portrait:!left-[6%] portrait:!top-[9%] portrait:!w-[81%] portrait:!h-[26%]"
               style={{ alignContent: "center" }}
             >
               <motion.p
@@ -199,7 +199,7 @@ export function CafeInterior({ onLeave }: Props) {
                         className="group block w-full min-w-0 rounded-md px-1 py-0.5 sm:px-2 sm:py-1 text-left text-parchment/95 transition hover:bg-parchment/10 focus:bg-parchment/10 focus:outline-none"
                       >
                         <span
-                          className="flex min-w-0 items-baseline gap-1 sm:gap-1.5 text-[clamp(0.6rem,2.2vw,1.4375rem)] portrait:text-[clamp(0.8rem,2.4vw,1.15rem)] leading-tight"
+                          className="flex min-w-0 items-baseline gap-1 sm:gap-1.5 text-[clamp(0.6rem,1.9vw,1.2rem)] portrait:text-[clamp(0.8rem,2.4vw,1.15rem)] leading-tight"
                           style={{ fontFamily: "var(--font-hand)" }}
                         >
                           <span className="text-parchment/60">·</span>
