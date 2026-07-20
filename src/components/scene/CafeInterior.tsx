@@ -159,14 +159,8 @@ export function CafeInterior({ onLeave }: Props) {
 
             {/* Menu overlay — sits on the blank chalkboard in the painting */}
             <div
-              className="absolute grid gap-2 text-left overflow-hidden portrait:!left-[6%] portrait:!top-[9%] portrait:!w-[81%] portrait:!h-[26%]"
-              style={{
-                left: "6%",
-                top: "12%",
-                width: "36%",
-                height: "30%",
-                alignContent: "center",
-              }}
+              className="absolute grid gap-2 text-left overflow-hidden left-[6%] top-[12%] w-[36%] h-[30%] md:left-[7%] md:top-[10%] md:w-[55%] md:h-[32%] portrait:!left-[6%] portrait:!top-[9%] portrait:!w-[81%] portrait:!h-[26%]"
+              style={{ alignContent: "center" }}
             >
               <motion.p
                 initial={{ opacity: 0, y: -6 }}
