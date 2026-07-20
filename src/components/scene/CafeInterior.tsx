@@ -377,8 +377,8 @@ export function CafeInterior({ onLeave }: Props) {
                 <span style={{ fontFamily: "var(--font-body)" }}>
                 Hi there, I am Esther aka Matcha Kitten.<br /><br />
                 <div className="mt-2">
-                  I design and build products using AI tools to go from 0 →1.&nbsp;<br /><br /><br />
-                  Right now I am building Chaday — the matcha database and journal app for enthusiasts.<br /><br /><br />
+                  I design and build products using AI tools to go from 0 →1.&nbsp;<br /><br />
+                  Right now I am building Chaday — the matcha database and journal app for enthusiasts.<br /><br />
                   &nbsp;Before this, I spent a few years in UX design and program management — now I build my own products, with AI as a creative partner instead of a team.
                 </div>
                 </span>
