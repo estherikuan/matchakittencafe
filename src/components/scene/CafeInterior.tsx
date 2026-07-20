@@ -46,38 +46,6 @@ export function CafeInterior({ onLeave }: Props) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-wood-deep">
       <audio ref={audioRef} src={lofiTrack.url} loop preload="auto" />
-      <button
-        onClick={() => setMuted((m) => !m)}
-        aria-label={muted ? "Play café music" : "Pause café music"}
-        aria-pressed={!muted}
-        className="group fixed bottom-24 right-1/2 translate-x-1/2 sm:bottom-6 sm:right-6 sm:translate-x-0 z-30 flex flex-col items-center gap-2 focus:outline-none"
-      >
-        <motion.span
-          className="pointer-events-none absolute -inset-2 rounded-2xl"
-          animate={
-            muted
-              ? { boxShadow: ["0 0 0 0 rgba(240,220,180,0.35)", "0 0 0 14px rgba(240,220,180,0)"] }
-              : { boxShadow: "0 0 0 0 rgba(0,0,0,0)" }
-          }
-          transition={{ duration: 1.8, repeat: muted ? Infinity : 0, ease: "easeOut" }}
-        />
-        <video
-          ref={videoRef}
-          src={recordVideo.url}
-          loop
-          muted
-          playsInline
-          preload="auto"
-          aria-hidden
-          className="relative h-24 w-24 select-none object-contain drop-shadow-[0_10px_18px_rgba(30,20,10,0.35)] transition-transform group-hover:scale-105"
-        />
-        <span
-          className="rounded-full bg-parchment/90 px-2 py-0.5 text-[0.6rem] uppercase tracking-[0.25em] text-wood-deep shadow"
-          style={{ fontFamily: "var(--font-hand)", letterSpacing: "0.15em" }}
-        >
-          {muted ? "press play" : "now spinning"}
-        </span>
-      </button>
       {/* soft interior ambient wash */}
       <div
         className="absolute inset-0 -z-10"
@@ -319,6 +287,41 @@ export function CafeInterior({ onLeave }: Props) {
             welcome in — take a seat, order from the menu, spin the record for the vibes!
           </p>
         </motion.div>
+
+        <div className="mt-10 flex w-full justify-center">
+          <button
+            onClick={() => setMuted((m) => !m)}
+            aria-label={muted ? "Play café music" : "Pause café music"}
+            aria-pressed={!muted}
+            className="group relative flex flex-col items-center gap-2 focus:outline-none"
+          >
+            <motion.span
+              className="pointer-events-none absolute -inset-2 rounded-2xl"
+              animate={
+                muted
+                  ? { boxShadow: ["0 0 0 0 rgba(240,220,180,0.35)", "0 0 0 14px rgba(240,220,180,0)"] }
+                  : { boxShadow: "0 0 0 0 rgba(0,0,0,0)" }
+              }
+              transition={{ duration: 1.8, repeat: muted ? Infinity : 0, ease: "easeOut" }}
+            />
+            <video
+              ref={videoRef}
+              src={recordVideo.url}
+              loop
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden
+              className="relative h-24 w-24 select-none object-contain drop-shadow-[0_10px_18px_rgba(30,20,10,0.35)] transition-transform group-hover:scale-105"
+            />
+            <span
+              className="rounded-full bg-parchment/90 px-2 py-0.5 text-[0.6rem] uppercase tracking-[0.25em] text-wood-deep shadow"
+              style={{ fontFamily: "var(--font-hand)", letterSpacing: "0.15em" }}
+            >
+              {muted ? "press play" : "now spinning"}
+            </span>
+          </button>
+        </div>
       </section>
 
       {/* Selected menu item — a little note card slides in */}
