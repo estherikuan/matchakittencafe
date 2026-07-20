@@ -21,7 +21,7 @@ const MENU: MenuItem[] = [
   { id: "chaday", title: "chaday.app", sub: "web application for matcha enthusiasts", href: "https://chaday.app", external: true },
   { id: "portal", title: "Portal Courtyard", sub: "web development for local bnb", href: "https://portalcourtyard.com/", external: true },
   { id: "about", title: "About the barista", sub: "a little note from me" },
-  { id: "email", title: "Email", sub: "estherikuan@yahoo.com", href: "mailto:estherikuan@yahoo.com", external: true },
+  { id: "email", title: "Email", sub: "connect with me\u00a0", href: "mailto:estherikuan@yahoo.com", external: true },
   { id: "linkedin", title: "LinkedIn", sub: "esther-kuan", href: "https://www.linkedin.com/in/esther-kuan/", external: true },
 ];
 
