@@ -1,5 +1,5 @@
 const LINKS = [
-  { label: "Resume", href: "/resume.pdf" },
+  { label: "Resume", href: "https://drive.google.com/file/d/1OG9Y6CoGDTTIwK93zT7_s70FkEHUqgJP/view?usp=sharing" },
   { label: "Email", href: "mailto:estherikuan@yahoo.com" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/esther-kuan/" },
 ];
@@ -16,7 +16,7 @@ export function SiteFooter() {
             {i > 0 && <span aria-hidden className="text-wood-deep/40">·</span>}
             <a
               href={l.href}
-              target={l.href.startsWith("http") || l.href.endsWith(".pdf") ? "_blank" : undefined}
+              target={l.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
               className="text-[0.95rem] leading-none text-wood-deep/80 underline decoration-wood-deep/0 underline-offset-4 transition hover:text-wood-deep hover:decoration-wood-deep/60"
             >
