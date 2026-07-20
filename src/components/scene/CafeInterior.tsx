@@ -208,12 +208,12 @@ export function CafeInterior({ onLeave }: Props) {
             >
               {"\n"}
             </motion.p>
-            <ul className="mt-1 grid grid-cols-1 gap-1 sm:grid-cols-2" style={{ marginLeft: "18px", marginTop: "18px", gridTemplateRows: "repeat(3, auto)" }}>
+            <ul className="mt-1 grid grid-cols-1 gap-1 lg:grid-cols-2" style={{ marginLeft: "18px", marginTop: "18px" }}>
               {MENU.map((m, i) => {
                 const pos: Record<string, string> = {
-                  chaday: "sm:col-start-1 sm:row-start-1",
-                  portal: "sm:col-start-1 sm:row-start-2",
-                  about: "sm:col-start-2 sm:row-start-1",
+                  chaday: "lg:col-start-1 lg:row-start-1",
+                  portal: "lg:col-start-1 lg:row-start-2",
+                  about: "lg:col-start-2 lg:row-start-1",
                 };
                 const inRightCol = m.id === "about";
                 return (
@@ -222,8 +222,7 @@ export function CafeInterior({ onLeave }: Props) {
                   initial={{ opacity: 0, x: -6 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.5 + i * 0.12, duration: 0.5 }}
-                  className={pos[m.id]}
-                  style={inRightCol ? { marginLeft: "18px" } : undefined}
+                  className={`${pos[m.id]} ${inRightCol ? "lg:ml-[18px]" : ""}`}
                 >
                   <button
                     onClick={() =>
