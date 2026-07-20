@@ -87,7 +87,7 @@ export function CafeInterior({ onLeave }: Props) {
         }}
       />
 
-      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center justify-center px-4 py-12">
+      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center justify-center px-1 py-6 sm:px-2 sm:py-8 lg:px-4 lg:py-12">
         {/* Camera-settle framing */}
         <motion.div
           initial={{ opacity: 0, scale: 1.08 }}

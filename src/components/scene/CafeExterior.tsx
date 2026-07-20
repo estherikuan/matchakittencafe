@@ -104,7 +104,7 @@ export function CafeExterior({ onEnter }: Props) {
         }}
       />
 
-      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center justify-center px-4 py-16">
+      <section className="relative mx-auto flex min-h-screen max-w-[1400px] flex-col items-center justify-center px-1 py-8 sm:px-2 sm:py-10 lg:px-4 lg:py-16">
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
