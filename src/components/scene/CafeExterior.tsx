@@ -111,21 +111,29 @@ export function CafeExterior({ onEnter }: Props) {
           transition={{ duration: 1.2, delay: 0.3 }}
           className="pointer-events-none absolute left-1/2 top-8 z-20 -translate-x-1/2 text-center sm:top-12"
         >
-          <p className="text-[0.7rem] uppercase tracking-[0.4em] text-matcha-deep/70">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.1, duration: 0.5 }}
+            className="text-[0.7rem] uppercase tracking-[0.4em] text-matcha-deep/70"
+          >
             welcome to
-          </p>
-          <h1
+          </motion.p>
+          <motion.h1
+            initial={{ scale: 3, y: "40vh", opacity: 0 }}
+            animate={{ scale: 1, y: 0, opacity: 1 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], opacity: { duration: 0.4 } }}
+            style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontWeight: 500, transformOrigin: "50% 50%" }}
             className="mt-1 text-3xl leading-none text-wood-deep sm:text-5xl"
-            style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontWeight: 500 }}
           >
             Matcha Kitten's Café
-          </h1>
+          </motion.h1>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.98, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.0, delay: 0.9, ease: "easeOut" }}
           className="relative mx-auto w-full max-w-[980px]"
         >
           <motion.img
