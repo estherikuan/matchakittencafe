@@ -112,14 +112,14 @@ export function CafeExterior({ onEnter }: Props) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.0, delay: 2.9, ease: "easeOut" }}
-          className="relative mx-auto mt-20 w-full max-w-[980px] lg:mt-0 portrait:mt-16 portrait:flex portrait:h-[60vh] portrait:w-auto portrait:max-w-none portrait:items-center portrait:justify-center"
+          className="relative mx-auto mt-20 w-full max-w-[980px] lg:mt-0 portrait:mt-16 portrait:flex portrait:h-[60vh] portrait:w-auto portrait:max-w-none portrait:items-center portrait:justify-center sm:portrait:block sm:portrait:h-auto sm:portrait:w-full sm:portrait:max-w-[980px]"
         >
           <motion.img
             src={cafeExterior}
             alt="A hand-painted matcha café with a kitten barista at the door"
             width={1600}
             height={1200}
-            className="pointer-events-none block h-auto w-full select-none rounded-2xl drop-shadow-[0_30px_60px_rgba(80,60,30,0.25)] portrait:h-full portrait:w-auto portrait:max-w-none portrait:-translate-x-[10%] sm:portrait:translate-x-0"
+            className="pointer-events-none block h-auto w-full select-none rounded-2xl drop-shadow-[0_30px_60px_rgba(80,60,30,0.25)] portrait:h-full portrait:w-auto portrait:max-w-none portrait:-translate-x-[10%] sm:portrait:h-auto sm:portrait:w-full sm:portrait:max-w-none sm:portrait:translate-x-0"
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             draggable={false}
