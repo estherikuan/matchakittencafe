@@ -245,7 +245,7 @@ export function CafeInterior({ onLeave }: Props) {
             >
               <span className="sr-only">Follow Matcha Kitten on Instagram</span>
               <span
-                className="pointer-events-none absolute left-full top-[65%] ml-4 -translate-y-1/2 whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:ml-6 group-hover:opacity-100 group-focus-visible:opacity-100 portrait:left-1/2 portrait:right-auto portrait:top-0 portrait:ml-0 portrait:-translate-x-1/2 portrait:-translate-y-[calc(100%+8px)] portrait:group-hover:ml-0 portrait:opacity-100"
+                className="pointer-events-none absolute left-full top-[65%] ml-4 -translate-y-1/2 whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:ml-6 group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:ml-6 [@media(hover:none)]:opacity-100 portrait:left-1/2 portrait:right-auto portrait:top-0 portrait:ml-0 portrait:-translate-x-1/2 portrait:-translate-y-[calc(100%+8px)] portrait:group-hover:ml-0 portrait:opacity-100"
                 style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
               >
                 <span className="inline-flex items-center gap-1">
@@ -301,7 +301,7 @@ export function CafeInterior({ onLeave }: Props) {
             >
               <span className="sr-only">Open today's special</span>
               <span
-                className="pointer-events-none absolute left-1/2 -top-2 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-xl bg-parchment px-3 py-1.5 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-[calc(100%+6px)] group-hover:opacity-100 group-focus-visible:opacity-100"
+                className="pointer-events-none absolute left-1/2 -top-2 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-xl bg-parchment px-3 py-1.5 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-[calc(100%+6px)] group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:-translate-y-[calc(100%+6px)] [@media(hover:none)]:opacity-100"
                 style={{ fontFamily: "var(--font-hand)", fontSize: "1rem" }}
               >
                 peek at today's special
