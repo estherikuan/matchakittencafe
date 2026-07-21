@@ -325,7 +325,7 @@ export function CafeInterior({ onLeave }: Props) {
               }}
               aria-label="Leave a note in the jar"
               className="group absolute z-20 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60 portrait:hidden"
-              style={{ left: "78%", top: "42%", width: "9%", height: "13%" }}
+              style={{ left: "58%", top: "42%", width: "9%", height: "13%" }}
             >
               <span className="sr-only">Leave a note in the jar</span>
               <span
