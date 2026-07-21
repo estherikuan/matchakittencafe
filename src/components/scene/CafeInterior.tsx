@@ -8,6 +8,7 @@ import claudeIcon from "@/assets/claude-icon.webp.asset.json";
 import recordImage from "@/assets/record-player.webp.asset.json";
 import estherPhoto from "@/assets/esther.jpeg.asset.json";
 import specialImage from "@/assets/mango-matcha-special.png.asset.json";
+import paperRustle from "@/assets/paper-rustle.mp3.asset.json";
 
 type Props = { onLeave: () => void };
 
@@ -49,6 +50,7 @@ export function CafeInterior({ onLeave }: Props) {
   const [muted, setMuted] = useState(true);
   const [specialOpen, setSpecialOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const rustleRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     const a = audioRef.current;
@@ -62,6 +64,7 @@ export function CafeInterior({ onLeave }: Props) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-wood-deep">
       <audio ref={audioRef} src={lofiTrack.url} loop preload="auto" />
+      <audio ref={rustleRef} src={paperRustle.url} preload="auto" />
       {/* soft interior ambient wash */}
       <div
         className="absolute inset-0 -z-10"
@@ -283,7 +286,15 @@ export function CafeInterior({ onLeave }: Props) {
             {/* Small "today's special" chalkboard hotspot — left of the kitten */}
             <button
               type="button"
-              onClick={() => setSpecialOpen(true)}
+              onClick={() => {
+                const r = rustleRef.current;
+                if (r) {
+                  r.currentTime = 0;
+                  r.volume = 0.6;
+                  r.play().catch(() => {});
+                }
+                setSpecialOpen(true);
+              }}
               aria-label="See today's special"
               className="group absolute z-20 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
               style={{ left: "8%", top: "54%", width: "13%", height: "16%" }}
