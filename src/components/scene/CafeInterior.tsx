@@ -203,7 +203,7 @@ export function CafeInterior({ onLeave }: Props) {
                           style={{ fontFamily: "var(--font-hand)" }}
                         >
                           <span className="text-parchment/60">·</span>
-                          <span className="min-w-0 truncate underline decoration-parchment/0 decoration-1 underline-offset-4 transition-all group-hover:decoration-parchment/60">
+                          <span className="min-w-0 break-words underline decoration-parchment/0 decoration-1 underline-offset-4 transition-all group-hover:decoration-parchment/60">
                             {m.title}
                           </span>
                           {m.external && (
