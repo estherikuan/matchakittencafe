@@ -49,6 +49,10 @@ export function CafeInterior({ onLeave }: Props) {
   const [selected, setSelected] = useState<MenuItem | null>(null);
   const [muted, setMuted] = useState(true);
   const [specialOpen, setSpecialOpen] = useState(false);
+  const [noteOpen, setNoteOpen] = useState(false);
+  const [noteName, setNoteName] = useState("");
+  const [noteText, setNoteText] = useState("");
+  const [noteSent, setNoteSent] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rustleRef = useRef<HTMLAudioElement | null>(null);
 
@@ -311,6 +315,30 @@ export function CafeInterior({ onLeave }: Props) {
                 />
               </span>
             </button>
+
+            {/* Note jar — third shelf, right side */}
+            <button
+              type="button"
+              onClick={() => {
+                setNoteSent(false);
+                setNoteOpen(true);
+              }}
+              aria-label="Leave a note in the jar"
+              className="group absolute z-20 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60 portrait:hidden"
+              style={{ left: "78%", top: "15%", width: "9%", height: "13%" }}
+            >
+              <span className="sr-only">Leave a note in the jar</span>
+              <span
+                className="pointer-events-none absolute left-1/2 -top-2 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-xl bg-parchment px-3 py-1.5 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-[calc(100%+6px)] group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:-translate-y-[calc(100%+6px)] [@media(hover:none)]:opacity-100"
+                style={{ fontFamily: "var(--font-hand)", fontSize: "1rem" }}
+              >
+                leave me a note ✿
+                <span
+                  aria-hidden
+                  className="absolute left-1/2 top-full -translate-x-1/2 -translate-y-1/2 rotate-45 h-3 w-3 bg-parchment"
+                />
+              </span>
+            </button>
           </div>
 
           {/* Back outside — stays anchored to the frame, not the zoomed scene */}
@@ -373,6 +401,133 @@ export function CafeInterior({ onLeave }: Props) {
 
       {/* Selected menu item — a little note card slides in */}
       <AnimatePresence>
+        {noteOpen && (
+          <motion.div
+            key="note"
+            className="fixed inset-0 z-40 flex items-center justify-center bg-ink/50 backdrop-blur-sm px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setNoteOpen(false)}
+          >
+            <motion.div
+              onClick={(e) => e.stopPropagation()}
+              initial={{ y: 20, scale: 0.95, opacity: 0, rotate: -2 }}
+              animate={{ y: 0, scale: 1, opacity: 1, rotate: -1 }}
+              exit={{ y: 20, scale: 0.95, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 22 }}
+              className="relative w-[min(420px,90vw)] rounded-xl p-7 shadow-[0_24px_48px_rgba(30,20,10,0.5)]"
+              style={{
+                background:
+                  "radial-gradient(circle at 20% 10%, oklch(0.96 0.03 90) 0%, oklch(0.9 0.04 82) 100%)",
+              }}
+            >
+              <button
+                onClick={() => setNoteOpen(false)}
+                aria-label="Close note"
+                className="absolute right-2 top-2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-parchment/95 text-wood-deep shadow hover:bg-parchment focus:outline-none"
+                style={{ fontFamily: "var(--font-hand)", fontSize: "1rem", lineHeight: 1 }}
+              >
+                ×
+              </button>
+              {!noteSent ? (
+                <>
+                  <p className="text-xs uppercase tracking-[0.35em] text-matcha-deep/70 text-center">
+                    the note jar
+                  </p>
+                  <h3
+                    className="mt-2 text-center text-3xl text-wood-deep"
+                    style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }}
+                  >
+                    leave me a little note
+                  </h3>
+                  <p
+                    className="mt-1 text-center text-wood/70"
+                    style={{ fontFamily: "var(--font-hand)", fontSize: "1rem" }}
+                  >
+                    a hello, a matcha rec, or a kind word ✿
+                  </p>
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      if (!noteText.trim()) return;
+                      try {
+                        const raw = localStorage.getItem("mk_notes");
+                        const arr = raw ? JSON.parse(raw) : [];
+                        arr.push({
+                          name: noteName.trim() || "anonymous friend",
+                          text: noteText.trim(),
+                          at: new Date().toISOString(),
+                        });
+                        localStorage.setItem("mk_notes", JSON.stringify(arr));
+                      } catch {}
+                      const r = rustleRef.current;
+                      if (r) {
+                        r.currentTime = 0;
+                        r.volume = 0.6;
+                        r.play().catch(() => {});
+                      }
+                      setNoteSent(true);
+                      setNoteName("");
+                      setNoteText("");
+                    }}
+                    className="mt-5 grid gap-3"
+                  >
+                    <input
+                      value={noteName}
+                      onChange={(e) => setNoteName(e.target.value)}
+                      placeholder="your name (optional)"
+                      className="rounded-lg border border-wood/20 bg-parchment/70 px-3 py-2 text-wood-deep placeholder:text-wood/40 focus:outline-none focus:ring-2 focus:ring-matcha-deep/40"
+                      style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem" }}
+                      maxLength={40}
+                    />
+                    <textarea
+                      value={noteText}
+                      onChange={(e) => setNoteText(e.target.value)}
+                      required
+                      placeholder="write a little note…"
+                      rows={4}
+                      className="resize-none rounded-lg border border-wood/20 bg-parchment/70 px-3 py-2 text-wood-deep placeholder:text-wood/40 focus:outline-none focus:ring-2 focus:ring-matcha-deep/40"
+                      style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem" }}
+                      maxLength={400}
+                    />
+                    <button
+                      type="submit"
+                      className="mt-1 justify-self-center rounded-full bg-wood-deep px-5 py-2 text-parchment shadow-md transition hover:-translate-y-0.5 hover:bg-wood-deep/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
+                      style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
+                    >
+                      drop it in the jar
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <div className="py-4 text-center">
+                  <p className="text-xs uppercase tracking-[0.35em] text-matcha-deep/70">
+                    saved to the jar
+                  </p>
+                  <h3
+                    className="mt-3 text-3xl text-wood-deep"
+                    style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }}
+                  >
+                    thank you ✿
+                  </h3>
+                  <p
+                    className="mt-3 text-wood-deep/80"
+                    style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
+                  >
+                    your note landed softly in the jar.
+                  </p>
+                  <button
+                    onClick={() => setNoteOpen(false)}
+                    className="mt-6 rounded-full border border-wood/30 px-4 py-1.5 text-xs uppercase tracking-widest text-wood-deep transition hover:bg-wood/10"
+                  >
+                    close
+                  </button>
+                </div>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
         {specialOpen && (
           <motion.div
             key="special"
