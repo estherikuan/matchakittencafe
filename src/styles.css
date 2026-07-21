@@ -167,5 +167,10 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    cursor: url("/__l5e/assets-v1/de7e4e00-7c4f-46ac-9318-d3a97f947ce6/paw-cursor-32.png") 16 14, auto;
+  }
+
+  a, button, [role="button"], [data-clickable], label, summary, select, input[type="submit"], input[type="button"], input[type="reset"] {
+    cursor: url("/__l5e/assets-v1/6735e94d-1a91-482f-917f-b5a4af69d0ef/paw-cursor-40.png") 20 17, pointer;
   }
 }
