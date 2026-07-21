@@ -341,6 +341,45 @@ export function CafeInterior({ onLeave }: Props) {
 
       {/* Selected menu item — a little note card slides in */}
       <AnimatePresence>
+        {specialOpen && (
+          <motion.div
+            key="special"
+            initial={{ opacity: 0, y: -20, rotate: -6 }}
+            animate={{ opacity: 1, y: 0, rotate: -3 }}
+            exit={{ opacity: 0, y: -20, rotate: -6 }}
+            transition={{ type: "spring", stiffness: 180, damping: 20, delay: 1.2 }}
+            className="fixed right-4 top-4 z-40 w-[180px] sm:w-[210px] rounded-lg overflow-hidden shadow-[0_18px_36px_rgba(30,20,10,0.45)]"
+          >
+            <button
+              onClick={() => setSpecialOpen(false)}
+              aria-label="Close today's special"
+              className="absolute right-1.5 top-1.5 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-parchment/95 text-wood-deep shadow hover:bg-parchment focus:outline-none"
+              style={{ fontFamily: "var(--font-hand)", fontSize: "0.9rem", lineHeight: 1 }}
+            >
+              ×
+            </button>
+            <img
+              src={specialImage.url}
+              alt="Today's special — mango coconut matcha recipe"
+              className="block h-auto w-full select-none"
+              draggable={false}
+            />
+          </motion.div>
+        )}
+        {!specialOpen && (
+          <motion.button
+            key="special-tab"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 30 }}
+            onClick={() => setSpecialOpen(true)}
+            aria-label="Show today's special"
+            className="fixed right-0 top-6 z-40 rounded-l-full bg-parchment/95 px-3 py-1.5 text-wood-deep shadow-md hover:bg-parchment focus:outline-none"
+            style={{ fontFamily: "var(--font-hand)", fontSize: "0.9rem" }}
+          >
+            today's special
+          </motion.button>
+        )}
         {selected && (
           <motion.div
             className="fixed inset-0 z-40 flex items-center justify-center bg-ink/50 backdrop-blur-sm px-4"
