@@ -362,8 +362,12 @@ export function CafeInterior({ onLeave }: Props) {
           transition={{ delay: 2, duration: 0.8 }}
           className="relative mt-6 flex w-full max-w-[1080px] items-center justify-center gap-3 text-parchment/80"
         >
-          <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.4375rem" }}>
-            welcome in — take a seat, order from the menu, check out today's special & spin the record for the vibes!
+          <p 
+            className="text-center"
+            style={{ fontFamily: "var(--font-hand)", fontSize: "1.4375rem", whiteSpace: "pre-line" }}
+          >
+            welcome in — take a seat, order from the menu, check out today's special &{"\u00A0"}leave me a note!{"\n"}
+            don't forget to spin the record for good vibes :)
           </p>
         </motion.div>
 
