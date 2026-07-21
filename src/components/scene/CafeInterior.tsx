@@ -335,7 +335,7 @@ export function CafeInterior({ onLeave }: Props) {
           className="relative mt-6 flex w-full max-w-[1080px] items-center justify-center gap-3 text-parchment/80"
         >
           <p style={{ fontFamily: "var(--font-hand)", fontSize: "1.4375rem" }}>
-            welcome in — take a seat, order from the menu, spin the record for the vibes!
+            welcome in — take a seat, order from the menu, check out today's special & spin the record for the vibes!
           </p>
         </motion.div>
 
