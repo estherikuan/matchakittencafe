@@ -439,7 +439,8 @@ export function CafeInterior({ onLeave }: Props) {
                   <img
                     src={estherPhoto.url}
                     alt="Esther, aka Matcha Kitten"
-                    className="h-44 w-44 object-contain"
+                    className="h-55 w-55 object-contain"
+                    style={{ height: "13.75rem", width: "13.75rem" }}
                   />
                 </div>
               )}
