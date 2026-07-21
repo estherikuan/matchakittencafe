@@ -6,7 +6,7 @@ import lofiTrack from "@/assets/cutie-japan-lofi.mp3.asset.json";
 import lovableIcon from "@/assets/lovable-icon.webp.asset.json";
 import claudeIcon from "@/assets/claude-icon.webp.asset.json";
 import recordImage from "@/assets/record-player.webp.asset.json";
-import estherPhoto from "@/assets/esther.jpeg.asset.json";
+import estherPhoto from "@/assets/about_barista.png.asset.json";
 import specialImage from "@/assets/mango-matcha-special.png.asset.json";
 import paperRustle from "@/assets/paper-rustle.mp3.asset.json";
 
