@@ -159,7 +159,7 @@ export function CafeInterior({ onLeave }: Props) {
 
             {/* Menu overlay — sits on the blank chalkboard in the painting */}
             <div
-              className="absolute grid gap-2 text-left overflow-hidden left-[6.5%] top-[8%] w-[44%] h-[32%] portrait:!left-[6%] portrait:!top-[9%] portrait:!w-[81%] portrait:!h-[26%]"
+              className="absolute grid gap-2 text-left overflow-hidden left-[6.5%] top-[8%] w-[38.5%] h-[32%] portrait:!left-[6%] portrait:!top-[9%] portrait:!w-[81%] portrait:!h-[26%]"
               style={{ alignContent: "center" }}
             >
               <motion.p
@@ -176,13 +176,13 @@ export function CafeInterior({ onLeave }: Props) {
               >
                 {"\n"}
               </motion.p>
-              <ul className="mt-1 grid grid-cols-1 gap-x-3 gap-y-0.5 sm:gap-y-1 md:grid-cols-2 ml-1 sm:ml-[18px] mt-1 sm:mt-[18px] pr-3">
+              <ul className="mt-1 grid grid-cols-2 gap-x-2 sm:gap-x-3 gap-y-0.5 sm:gap-y-1 ml-1 sm:ml-[18px] mt-1 sm:mt-[18px] pr-3">
                 {MENU.map((m, i) => {
                   const pos: Record<string, string> = {
-                    chaday: "md:col-start-1 md:row-start-1",
-                    portal: "md:col-start-1 md:row-start-2",
-                    flowforger: "md:col-start-2 md:row-start-1",
-                    about: "md:col-start-2 md:row-start-2",
+                    chaday: "col-start-1 row-start-1",
+                    portal: "col-start-1 row-start-2",
+                    flowforger: "col-start-2 row-start-1",
+                    about: "col-start-2 row-start-2",
                   };
                   return (
                     <motion.li
@@ -199,7 +199,7 @@ export function CafeInterior({ onLeave }: Props) {
                         className="group block w-full min-w-0 rounded-md px-1 py-0.5 sm:px-2 sm:py-1 text-left text-parchment/95 transition hover:bg-parchment/10 focus:bg-parchment/10 focus:outline-none"
                       >
                         <span
-                          className="flex min-w-0 items-baseline gap-1 sm:gap-1.5 text-[clamp(0.6rem,1.9vw,1.2rem)] portrait:text-[clamp(0.8rem,2.4vw,1.15rem)] leading-tight"
+                          className="flex min-w-0 items-baseline gap-1 sm:gap-1.5 text-[clamp(0.6rem,1.9vw,1.2rem)] portrait:text-[clamp(1.05rem,3.4vw,1.65rem)] leading-tight"
                           style={{ fontFamily: "var(--font-hand)" }}
                         >
                           <span className="text-parchment/60">·</span>
@@ -215,7 +215,7 @@ export function CafeInterior({ onLeave }: Props) {
                           )}
                         </span>
                         <span
-                          className="ml-2 sm:ml-3 block min-w-0 text-[clamp(0.55rem,1.5vw,0.875rem)] portrait:text-[clamp(0.6rem,1.5vw,0.8rem)] leading-tight text-parchment/55"
+                          className="ml-2 sm:ml-3 block min-w-0 text-[clamp(0.55rem,1.5vw,0.875rem)] portrait:text-[clamp(0.8rem,2.2vw,1.05rem)] leading-tight text-parchment/55"
                           style={{ fontFamily: "var(--font-body)" }}
                         >
                           {m.sub}
