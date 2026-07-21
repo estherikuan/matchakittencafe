@@ -203,7 +203,7 @@ export function CafeInterior({ onLeave }: Props) {
                           style={{ fontFamily: "var(--font-hand)" }}
                         >
                           <span className="text-parchment/60">·</span>
-                          <span className="min-w-0 truncate underline decoration-parchment/0 decoration-1 underline-offset-4 transition-all group-hover:decoration-parchment/60">
+                          <span className="min-w-0 break-words underline decoration-parchment/0 decoration-1 underline-offset-4 transition-all group-hover:decoration-parchment/60">
                             {m.title}
                           </span>
                           {m.external && (
@@ -240,7 +240,7 @@ export function CafeInterior({ onLeave }: Props) {
             >
               <span className="sr-only">Follow Matcha Kitten on Instagram</span>
               <span
-                className="pointer-events-none absolute left-full top-1/2 ml-4 -translate-y-1/2 whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:ml-6 group-hover:opacity-100 group-focus-visible:opacity-100 portrait:left-1/2 portrait:right-auto portrait:top-0 portrait:ml-0 portrait:-translate-x-1/2 portrait:-translate-y-[calc(100%+8px)] portrait:group-hover:ml-0 portrait:opacity-100"
+                className="pointer-events-none absolute left-full top-[65%] ml-4 -translate-y-1/2 whitespace-nowrap rounded-xl bg-parchment px-4 py-2 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:ml-6 group-hover:opacity-100 group-focus-visible:opacity-100 portrait:left-1/2 portrait:right-auto portrait:top-0 portrait:ml-0 portrait:-translate-x-1/2 portrait:-translate-y-[calc(100%+8px)] portrait:group-hover:ml-0 portrait:opacity-100"
                 style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
               >
                 <span className="inline-flex items-center gap-1">
