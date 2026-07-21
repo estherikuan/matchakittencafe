@@ -1,5 +1,5 @@
 const LINKS = [
-  { label: "Resume", href: "https://drive.google.com/file/d/1OG9Y6CoGDTTIwK93zT7_s70FkEHUqgJP/view?usp=sharing" },
+  { label: "Resume", href: "https://drive.google.com/file/d/1mlEhFopebPqo1ruUonvv6CU7wIcjSAjc/view?usp=sharing" },
   { label: "Email", href: "mailto:estherikuan@yahoo.com" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/esther-kuan/" },
 ];
