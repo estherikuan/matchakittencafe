@@ -7,6 +7,7 @@ import lovableIcon from "@/assets/lovable-icon.webp.asset.json";
 import claudeIcon from "@/assets/claude-icon.webp.asset.json";
 import recordImage from "@/assets/record-player.webp.asset.json";
 import estherPhoto from "@/assets/esther.jpeg.asset.json";
+import specialImage from "@/assets/mango-matcha-special.png.asset.json";
 
 type Props = { onLeave: () => void };
 
@@ -46,6 +47,7 @@ const MENU: MenuItem[] = [
 export function CafeInterior({ onLeave }: Props) {
   const [selected, setSelected] = useState<MenuItem | null>(null);
   const [muted, setMuted] = useState(true);
+  const [specialOpen, setSpecialOpen] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
