@@ -47,7 +47,7 @@ const MENU: MenuItem[] = [
 export function CafeInterior({ onLeave }: Props) {
   const [selected, setSelected] = useState<MenuItem | null>(null);
   const [muted, setMuted] = useState(true);
-  const [specialOpen, setSpecialOpen] = useState(true);
+  const [specialOpen, setSpecialOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -279,6 +279,27 @@ export function CafeInterior({ onLeave }: Props) {
                 />
               </span>
             </div>
+
+            {/* Small "today's special" chalkboard hotspot — left of the kitten */}
+            <button
+              type="button"
+              onClick={() => setSpecialOpen(true)}
+              aria-label="See today's special"
+              className="group absolute z-20 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
+              style={{ left: "8%", top: "54%", width: "13%", height: "16%" }}
+            >
+              <span className="sr-only">Open today's special</span>
+              <span
+                className="pointer-events-none absolute left-1/2 -top-2 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-xl bg-parchment px-3 py-1.5 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-[calc(100%+6px)] group-hover:opacity-100 group-focus-visible:opacity-100"
+                style={{ fontFamily: "var(--font-hand)", fontSize: "1rem" }}
+              >
+                peek at today's special
+                <span
+                  aria-hidden
+                  className="absolute left-1/2 top-full -translate-x-1/2 -translate-y-1/2 rotate-45 h-3 w-3 bg-parchment"
+                />
+              </span>
+            </button>
           </div>
 
           {/* Back outside — stays anchored to the frame, not the zoomed scene */}
@@ -344,41 +365,36 @@ export function CafeInterior({ onLeave }: Props) {
         {specialOpen && (
           <motion.div
             key="special"
-            initial={{ opacity: 0, y: -20, rotate: -6 }}
-            animate={{ opacity: 1, y: 0, rotate: -3 }}
-            exit={{ opacity: 0, y: -20, rotate: -6 }}
-            transition={{ type: "spring", stiffness: 180, damping: 20, delay: 1.2 }}
-            className="fixed right-4 top-4 z-40 w-[180px] sm:w-[210px] rounded-lg overflow-hidden shadow-[0_18px_36px_rgba(30,20,10,0.45)]"
+            className="fixed inset-0 z-40 flex items-center justify-center bg-ink/50 backdrop-blur-sm px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSpecialOpen(false)}
           >
-            <button
-              onClick={() => setSpecialOpen(false)}
-              aria-label="Close today's special"
-              className="absolute right-1.5 top-1.5 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-parchment/95 text-wood-deep shadow hover:bg-parchment focus:outline-none"
-              style={{ fontFamily: "var(--font-hand)", fontSize: "0.9rem", lineHeight: 1 }}
+            <motion.div
+              onClick={(e) => e.stopPropagation()}
+              initial={{ y: 20, scale: 0.95, opacity: 0, rotate: -4 }}
+              animate={{ y: 0, scale: 1, opacity: 1, rotate: -2 }}
+              exit={{ y: 20, scale: 0.95, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 22 }}
+              className="relative w-[min(360px,88vw)] overflow-hidden rounded-xl shadow-[0_24px_48px_rgba(30,20,10,0.5)]"
             >
-              ×
-            </button>
-            <img
-              src={specialImage.url}
-              alt="Today's special — mango coconut matcha recipe"
-              className="block h-auto w-full select-none"
-              draggable={false}
-            />
+              <button
+                onClick={() => setSpecialOpen(false)}
+                aria-label="Close today's special"
+                className="absolute right-2 top-2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-parchment/95 text-wood-deep shadow hover:bg-parchment focus:outline-none"
+                style={{ fontFamily: "var(--font-hand)", fontSize: "1rem", lineHeight: 1 }}
+              >
+                ×
+              </button>
+              <img
+                src={specialImage.url}
+                alt="Today's special — mango coconut matcha recipe"
+                className="block h-auto w-full select-none"
+                draggable={false}
+              />
+            </motion.div>
           </motion.div>
-        )}
-        {!specialOpen && (
-          <motion.button
-            key="special-tab"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 30 }}
-            onClick={() => setSpecialOpen(true)}
-            aria-label="Show today's special"
-            className="fixed right-0 top-6 z-40 rounded-l-full bg-parchment/95 px-3 py-1.5 text-wood-deep shadow-md hover:bg-parchment focus:outline-none"
-            style={{ fontFamily: "var(--font-hand)", fontSize: "0.9rem" }}
-          >
-            today's special
-          </motion.button>
         )}
         {selected && (
           <motion.div
