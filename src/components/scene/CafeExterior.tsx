@@ -127,7 +127,7 @@ export function CafeExterior({ onEnter }: Props) {
           >
             <span className="pointer-events-none absolute inset-0 rounded-t-[30%] bg-lantern/0 transition duration-500 group-hover:bg-lantern/25 group-focus-visible:bg-lantern/30" />
             <span
-              className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-parchment/95 px-3 py-1 text-wood-deep shadow-md transition-transform duration-300 group-hover:scale-105 group-focus-visible:scale-105"
+              className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-parchment/95 px-3 py-1 text-wood-deep shadow-md transition-transform duration-300 group-hover:scale-105 group-focus-visible:scale-105"
               style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
             >
               <span className="inline-flex items-center gap-1">
@@ -145,7 +145,7 @@ export function CafeExterior({ onEnter }: Props) {
           >
             <span className="pointer-events-none absolute inset-0 rounded-lg ring-0 ring-lantern/60 transition duration-500 group-hover:ring-4 group-focus-visible:ring-4" />
             <span
-              className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-parchment/95 px-3 py-1 text-wood-deep shadow-md transition-transform duration-300 group-hover:scale-105 group-focus-visible:scale-105"
+              className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-parchment/95 px-3 py-1 text-wood-deep shadow-md transition-transform duration-300 group-hover:scale-105 group-focus-visible:scale-105"
               style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}
             >
               peek at the menu
