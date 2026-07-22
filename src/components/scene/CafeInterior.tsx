@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ArrowRight, ArrowLeft } from "lucide-react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import cafeInterior from "@/assets/cafe-interior.png";
 import lofiTrack from "@/assets/cutie-japan-lofi.mp3.asset.json";
 import lovableIcon from "@/assets/lovable-icon.webp.asset.json";
@@ -55,6 +57,29 @@ export function CafeInterior({ onLeave }: Props) {
   const [noteSent, setNoteSent] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rustleRef = useRef<HTMLAudioElement | null>(null);
+
+  const queryClient = useQueryClient();
+  const countQuery = useQuery({
+    queryKey: ["notes-count"],
+    queryFn: async () => {
+      const { data, error } = await supabase.rpc("get_notes_count");
+      if (error) throw error;
+      return Number(data ?? 0);
+    },
+    staleTime: 30_000,
+  });
+  const submitNote = useMutation({
+    mutationFn: async (input: { name: string; body: string }) => {
+      const { error } = await supabase.from("notes").insert({
+        name: input.name || null,
+        body: input.body,
+      });
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["notes-count"] });
+    },
+  });
 
   useEffect(() => {
     const a = audioRef.current;
@@ -332,7 +357,9 @@ export function CafeInterior({ onLeave }: Props) {
                 className="pointer-events-none absolute left-1/2 -top-2 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-xl bg-parchment px-3 py-1.5 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-[calc(100%+6px)] group-hover:opacity-100 group-focus-visible:opacity-100 [@media(hover:none)]:-translate-y-[calc(100%+6px)] [@media(hover:none)]:opacity-100"
                 style={{ fontFamily: "var(--font-hand)", fontSize: "1rem" }}
               >
-                leave me a note ✿
+                {countQuery.data && countQuery.data > 0
+                  ? `leave me a note · ${countQuery.data} in the jar ✿`
+                  : "leave me a note · be the first ✿"}
                 <span
                   aria-hidden
                   className="absolute left-1/2 top-full -translate-x-1/2 -translate-y-1/2 rotate-45 h-3 w-3 bg-parchment"
@@ -455,25 +482,22 @@ export function CafeInterior({ onLeave }: Props) {
                     onSubmit={(e) => {
                       e.preventDefault();
                       if (!noteText.trim()) return;
-                      try {
-                        const raw = localStorage.getItem("mk_notes");
-                        const arr = raw ? JSON.parse(raw) : [];
-                        arr.push({
-                          name: noteName.trim() || "anonymous friend",
-                          text: noteText.trim(),
-                          at: new Date().toISOString(),
-                        });
-                        localStorage.setItem("mk_notes", JSON.stringify(arr));
-                      } catch {}
-                      const r = rustleRef.current;
-                      if (r) {
-                        r.currentTime = 0;
-                        r.volume = 0.6;
-                        r.play().catch(() => {});
-                      }
-                      setNoteSent(true);
-                      setNoteName("");
-                      setNoteText("");
+                      submitNote.mutate(
+                        { name: noteName.trim(), body: noteText.trim() },
+                        {
+                          onSuccess: () => {
+                            const r = rustleRef.current;
+                            if (r) {
+                              r.currentTime = 0;
+                              r.volume = 0.6;
+                              r.play().catch(() => {});
+                            }
+                            setNoteSent(true);
+                            setNoteName("");
+                            setNoteText("");
+                          },
+                        }
+                      );
                     }}
                     className="mt-5 grid gap-3"
                   >
@@ -493,14 +517,20 @@ export function CafeInterior({ onLeave }: Props) {
                       rows={4}
                       className="resize-none rounded-lg border border-wood/20 bg-parchment/70 px-3 py-2 text-wood-deep placeholder:text-wood/40 focus:outline-none focus:ring-2 focus:ring-matcha-deep/40"
                       style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem" }}
-                      maxLength={400}
+                      maxLength={500}
                     />
+                    {submitNote.isError && (
+                      <p className="text-center text-sm text-red-700/80">
+                        couldn't save the note — try again in a moment
+                      </p>
+                    )}
                     <button
                       type="submit"
+                      disabled={submitNote.isPending}
                       className="mt-1 justify-self-center rounded-full bg-wood-deep px-5 py-2 text-parchment shadow-md transition hover:-translate-y-0.5 hover:bg-wood-deep/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
                       style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
                     >
-                      drop it in the jar
+                      {submitNote.isPending ? "dropping…" : "drop it in the jar"}
                     </button>
                   </form>
                 </>
