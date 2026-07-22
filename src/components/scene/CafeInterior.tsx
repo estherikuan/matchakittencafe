@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ArrowRight, ArrowLeft } from "lucide-react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import cafeInterior from "@/assets/cafe-interior.png";
 import lofiTrack from "@/assets/cutie-japan-lofi.mp3.asset.json";
 import lovableIcon from "@/assets/lovable-icon.webp.asset.json";
