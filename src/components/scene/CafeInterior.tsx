@@ -610,7 +610,7 @@ export function CafeInterior({ onLeave }: Props) {
               animate={{ y: 0, scale: 1, opacity: 1, rotate: -0.5 }}
               exit={{ y: 20, scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 22 }}
-              className="max-w-md rounded-xl p-8 text-center shadow-2xl"
+              className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded-xl p-5 text-center shadow-2xl sm:p-8"
               style={{
                 background: "radial-gradient(circle at 20% 10%, oklch(0.96 0.03 90) 0%, oklch(0.9 0.04 82) 100%)",
               }}
@@ -628,8 +628,11 @@ export function CafeInterior({ onLeave }: Props) {
                   <img
                     src={estherPhoto.url}
                     alt="Esther, aka Matcha Kitten"
-                    className="h-55 w-55 object-contain"
-                    style={{ height: "17.1875rem", width: "17.1875rem" }}
+                    className="object-contain"
+                    style={{
+                      height: "clamp(9rem, 40vw, 17.1875rem)",
+                      width: "clamp(9rem, 40vw, 17.1875rem)",
+                    }}
                   />
                 </div>
               )}
