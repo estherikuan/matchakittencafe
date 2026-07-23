@@ -11,6 +11,7 @@ import recordImage from "@/assets/record-player.webp.asset.json";
 import estherPhoto from "@/assets/about_barista.png.asset.json";
 import specialImage from "@/assets/mango-matcha-special.png.asset.json";
 import paperRustle from "@/assets/paper-rustle.mp3.asset.json";
+import jarLid from "@/assets/jar-lid.mp3.asset.json";
 
 type Props = { onLeave: () => void };
 
@@ -57,6 +58,7 @@ export function CafeInterior({ onLeave }: Props) {
   const [noteSent, setNoteSent] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const rustleRef = useRef<HTMLAudioElement | null>(null);
+  const jarLidRef = useRef<HTMLAudioElement | null>(null);
 
   const queryClient = useQueryClient();
   const countQuery = useQuery({
@@ -94,6 +96,7 @@ export function CafeInterior({ onLeave }: Props) {
     <div className="relative min-h-screen w-full overflow-hidden bg-wood-deep">
       <audio ref={audioRef} src={lofiTrack.url} loop preload="auto" />
       <audio ref={rustleRef} src={paperRustle.url} preload="auto" />
+      <audio ref={jarLidRef} src={jarLid.url} preload="auto" />
       {/* soft interior ambient wash */}
       <div
         className="absolute inset-0 -z-10"
@@ -345,6 +348,22 @@ export function CafeInterior({ onLeave }: Props) {
             <button
               type="button"
               onClick={() => {
+                const a = jarLidRef.current;
+                if (a) {
+                  try {
+                    a.pause();
+                    a.currentTime = 6;
+                    a.volume = 0.7;
+                    const stop = () => {
+                      if (a.currentTime >= 7) {
+                        a.pause();
+                        a.removeEventListener("timeupdate", stop);
+                      }
+                    };
+                    a.addEventListener("timeupdate", stop);
+                    a.play().catch(() => {});
+                  } catch {}
+                }
                 setNoteSent(false);
                 setNoteOpen(true);
               }}
