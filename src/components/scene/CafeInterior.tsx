@@ -625,8 +625,8 @@ export function CafeInterior({ onLeave }: Props) {
           >
             <motion.div
               onClick={(e) => e.stopPropagation()}
-              initial={{ y: 30, scale: 0.95, opacity: 0, rotate: -1 }}
-              animate={{ y: 0, scale: 1, opacity: 1, rotate: -0.5 }}
+              initial={{ y: 30, scale: 0.95, opacity: 0, rotate: 0 }}
+              animate={{ y: 0, scale: 1, opacity: 1, rotate: 0 }}
               exit={{ y: 20, scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 22 }}
               className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded-xl p-5 text-center shadow-2xl sm:p-8"
