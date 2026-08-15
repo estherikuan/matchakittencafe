@@ -6,13 +6,32 @@ import cafeExterior from "@/assets/cafe-exterior.png";
 import lofiTrack from "@/assets/lofi-nemuko.mp3.asset.json";
 import meowSound from "@/assets/cat-meow.mp3.asset.json";
 import recordImage from "@/assets/record-player.webp.asset.json";
+import kittenWave from "@/assets/kitten-wave.mp4.asset.json";
 
 type Props = { onEnter: () => void };
 
 export function CafeExterior({ onEnter }: Props) {
   const [peek, setPeek] = useState(false);
   const [muted, setMuted] = useState(true);
+  const [playingWave, setPlayingWave] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const waveRef = useRef<HTMLVideoElement | null>(null);
+
+  const startEnter = () => {
+    setPeek(false);
+    setPlayingWave(true);
+    const a = audioRef.current;
+    if (a) a.pause();
+    requestAnimationFrame(() => {
+      const v = waveRef.current;
+      if (!v) {
+        onEnter();
+        return;
+      }
+      v.currentTime = 0;
+      v.play().catch(() => onEnter());
+    });
+  };
 
   useEffect(() => {
     const a = audioRef.current;
