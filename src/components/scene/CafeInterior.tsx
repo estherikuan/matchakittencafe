@@ -704,12 +704,6 @@ export function CafeInterior({ onLeave }: Props) {
                     <ArrowUpRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
                   </a>
                 )}
-                <button
-                  onClick={() => setSelected(null)}
-                  className="rounded-full border border-wood/30 px-4 py-1.5 text-xs uppercase tracking-widest text-wood-deep transition hover:bg-wood/10"
-                >
-                  close
-                </button>
               </div>
             </motion.div>
           </motion.div>
