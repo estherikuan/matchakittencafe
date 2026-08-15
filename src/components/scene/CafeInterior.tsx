@@ -660,29 +660,49 @@ export function CafeInterior({ onLeave }: Props) {
                   />
                 </div>
               )}
-              <div className="mt-8 text-wood-deep/80" style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}>
-                *hands over a matcha*
-                <br />
-                <br />
-                <div style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
-                  Hi there, I am Esther aka Matcha Kitten.
-                  <br />
-                  I design and build products using AI tools to go from 0 →1.&nbsp;
-                  <br />
-                  <br />
-                  Right now I am building Chaday — the matcha database and journal app for enthusiasts.
-                  <br />
-                  <br />
-                  &nbsp;Before this, I spent a few years in UX design and program management — now I build my own
-                  products, with AI as a creative partner instead of a team.
+              {selected.external && selected.description ? (
+                <div className="mt-8 text-left text-wood-deep/80" style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
+                  {selected.description}
                 </div>
+              ) : (
+                <div className="mt-8 text-wood-deep/80" style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}>
+                  *hands over a matcha*
+                  <br />
+                  <br />
+                  <div style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
+                    Hi there, I am Esther aka Matcha Kitten.
+                    <br />
+                    I design and build products using AI tools to go from 0 →1.&nbsp;
+                    <br />
+                    <br />
+                    Right now I am building Chaday — the matcha database and journal app for enthusiasts.
+                    <br />
+                    <br />
+                    &nbsp;Before this, I spent a few years in UX design and program management — now I build my own
+                    products, with AI as a creative partner instead of a team.
+                  </div>
+                </div>
+              )}
+              <div className="mt-6 flex flex-col items-center gap-3">
+                {selected.external && selected.href && (
+                  <a
+                    href={selected.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-wood-deep px-5 py-2 text-parchment shadow-md transition hover:-translate-y-0.5 hover:bg-wood-deep/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
+                    style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
+                  >
+                    Visit {selected.title}
+                    <ArrowUpRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
+                  </a>
+                )}
+                <button
+                  onClick={() => setSelected(null)}
+                  className="rounded-full border border-wood/30 px-4 py-1.5 text-xs uppercase tracking-widest text-wood-deep transition hover:bg-wood/10"
+                >
+                  close
+                </button>
               </div>
-              <button
-                onClick={() => setSelected(null)}
-                className="mt-6 rounded-full border border-wood/30 px-4 py-1.5 text-xs uppercase tracking-widest text-wood-deep transition hover:bg-wood/10"
-              >
-                close
-              </button>
             </motion.div>
           </motion.div>
         )}
