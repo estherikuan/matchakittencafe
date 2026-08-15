@@ -52,7 +52,7 @@ const MENU: MenuItem[] = [
     href: "https://asanabuilder-ai.lovable.app",
     external: true,
     description:
-      "FlowForger is a prototype, not a finished product — an AI workflow tool I built to explore how automation can speed up repetitive planning work, in this case generating structured yoga flows for instructors. It's more a demonstration of how I use AI to build tools that boost efficiency than a polished app.",
+      "FlowForger is an AI workflow tool I built to explore how automation can speed up repetitive planning work, in this case generating structured yoga flows for instructors. It's more a demonstration of how I use AI to build tools that boost efficiency than a polished app.",
   },
   {
     id: "popup",
