@@ -21,6 +21,7 @@ type MenuItem = {
   sub: string;
   href?: string;
   external?: boolean;
+  description?: string;
 };
 
 const MENU: MenuItem[] = [
@@ -30,6 +31,8 @@ const MENU: MenuItem[] = [
     sub: "web application for matcha enthusiasts",
     href: "https://chaday.app",
     external: true,
+    description:
+      "Chaday is my matcha database and journal — a place for enthusiasts to log, rate, and discover matcha. I designed and built it solo, using Claude and Lovable to go from idea to a working app fast.",
   },
   {
     id: "portal",
@@ -37,6 +40,8 @@ const MENU: MenuItem[] = [
     sub: "web development for local bnb",
     href: "https://portalcourtyard.com/",
     external: true,
+    description:
+      "A full site migration for a local bnb — 100+ pages moved from a legacy platform in 8 weeks. I prototyped in Lovable, built custom blog functionality in Cursor, and launched the final site on Squarespace.",
   },
   {
     id: "flowforger",
@@ -44,6 +49,8 @@ const MENU: MenuItem[] = [
     sub: "AI workflow tool",
     href: "https://asanabuilder-ai.lovable.app",
     external: true,
+    description:
+      "FlowForger is a prototype, not a finished product — an AI workflow tool I built to explore how automation can speed up repetitive planning work, in this case generating structured yoga flows for instructors. It's more a demonstration of how I use AI to build tools that boost efficiency than a polished app.",
   },
   { id: "about", title: "About the barista", sub: "a little note from me" },
 ];
@@ -230,9 +237,7 @@ export function CafeInterior({ onLeave }: Props) {
                       className={`${pos[m.id]} min-w-0`}
                     >
                       <button
-                        onClick={() =>
-                          m.external && m.href ? window.open(m.href, "_blank", "noopener,noreferrer") : setSelected(m)
-                        }
+                        onClick={() => setSelected(m)}
                         className="group block w-full min-w-0 rounded-md px-1 py-0.5 sm:px-2 sm:py-1 text-left text-parchment/95 transition hover:bg-parchment/10 focus:bg-parchment/10 focus:outline-none"
                       >
                         <span
@@ -655,29 +660,49 @@ export function CafeInterior({ onLeave }: Props) {
                   />
                 </div>
               )}
-              <div className="mt-8 text-wood-deep/80" style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}>
-                *hands over a matcha*
-                <br />
-                <br />
-                <div style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
-                  Hi there, I am Esther aka Matcha Kitten.
-                  <br />
-                  I design and build products using AI tools to go from 0 →1.&nbsp;
-                  <br />
-                  <br />
-                  Right now I am building Chaday — the matcha database and journal app for enthusiasts.
-                  <br />
-                  <br />
-                  &nbsp;Before this, I spent a few years in UX design and program management — now I build my own
-                  products, with AI as a creative partner instead of a team.
+              {selected.external && selected.description ? (
+                <div className="mt-8 text-left text-wood-deep/80" style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
+                  {selected.description}
                 </div>
+              ) : (
+                <div className="mt-8 text-wood-deep/80" style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}>
+                  *hands over a matcha*
+                  <br />
+                  <br />
+                  <div style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
+                    Hi there, I am Esther aka Matcha Kitten.
+                    <br />
+                    I design and build products using AI tools to go from 0 →1.&nbsp;
+                    <br />
+                    <br />
+                    Right now I am building Chaday — the matcha database and journal app for enthusiasts.
+                    <br />
+                    <br />
+                    &nbsp;Before this, I spent a few years in UX design and program management — now I build my own
+                    products, with AI as a creative partner instead of a team.
+                  </div>
+                </div>
+              )}
+              <div className="mt-6 flex flex-col items-center gap-3">
+                {selected.external && selected.href && (
+                  <a
+                    href={selected.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-wood-deep px-5 py-2 text-parchment shadow-md transition hover:-translate-y-0.5 hover:bg-wood-deep/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
+                    style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
+                  >
+                    Visit {selected.title}
+                    <ArrowUpRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
+                  </a>
+                )}
+                <button
+                  onClick={() => setSelected(null)}
+                  className="rounded-full border border-wood/30 px-4 py-1.5 text-xs uppercase tracking-widest text-wood-deep transition hover:bg-wood/10"
+                >
+                  close
+                </button>
               </div>
-              <button
-                onClick={() => setSelected(null)}
-                className="mt-6 rounded-full border border-wood/30 px-4 py-1.5 text-xs uppercase tracking-widest text-wood-deep transition hover:bg-wood/10"
-              >
-                close
-              </button>
             </motion.div>
           </motion.div>
         )}
