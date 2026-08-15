@@ -575,12 +575,6 @@ export function CafeInterior({ onLeave }: Props) {
                   >
                     your note landed softly in the jar.
                   </p>
-                  <button
-                    onClick={() => setNoteOpen(false)}
-                    className="mt-6 rounded-full border border-wood/30 px-4 py-1.5 text-xs uppercase tracking-widest text-wood-deep transition hover:bg-wood/10"
-                  >
-                    close
-                  </button>
                 </div>
               )}
             </motion.div>
