@@ -667,7 +667,7 @@ export function CafeInterior({ onLeave }: Props) {
               {selected.id === "chaday" && (
                 <div className="mt-5 flex justify-center">
                   <div
-                    className="relative w-[300px] max-w-full aspect-[480/816] border-8 border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
+                    className="relative w-[300px] max-w-full aspect-[10/17] border-8 border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
                     style={{ borderRadius: "2rem" }}
                   >
                     <span
