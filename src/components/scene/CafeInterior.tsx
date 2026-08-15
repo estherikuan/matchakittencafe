@@ -28,7 +28,7 @@ const MENU: MenuItem[] = [
   {
     id: "chaday",
     title: "chaday.app",
-    sub: "web application for matcha enthusiasts",
+    sub: "application for matcha enthusiasts",
     href: "https://chaday.app",
     external: true,
     description:
