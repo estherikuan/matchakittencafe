@@ -634,11 +634,19 @@ export function CafeInterior({ onLeave }: Props) {
               animate={{ y: 0, scale: 1, opacity: 1, rotate: 0 }}
               exit={{ y: 20, scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 22 }}
-              className="max-h-[90vh] w-full max-w-md overflow-y-auto rounded-xl p-5 text-center shadow-2xl sm:p-8"
+              className="relative max-h-[90vh] w-full max-w-md overflow-y-auto rounded-xl p-5 text-center shadow-2xl sm:p-8"
               style={{
                 background: "radial-gradient(circle at 20% 10%, oklch(0.96 0.03 90) 0%, oklch(0.9 0.04 82) 100%)",
               }}
             >
+              <button
+                onClick={() => setSelected(null)}
+                aria-label="Close"
+                className="absolute right-2 top-2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-parchment/95 text-wood-deep shadow hover:bg-parchment focus:outline-none"
+                style={{ fontFamily: "var(--font-hand)", fontSize: "1rem", lineHeight: 1 }}
+              >
+                ×
+              </button>
               <p className="text-xs uppercase tracking-[0.35em] text-matcha-deep/70">on the menu</p>
               <h3
                 className="mt-3 text-3xl text-wood-deep"
