@@ -283,12 +283,21 @@ export function CafeExterior({ onEnter }: Props) {
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="absolute right-2 top-2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-parchment/95 text-wood-deep shadow hover:bg-parchment focus:outline-none"
-              style={{ fontFamily: "var(--font-hand)", fontSize: "1rem", lineHeight: 1 }}
+              className="relative max-w-sm rounded-2xl bg-parchment p-8 text-center shadow-2xl"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 20% 10%, oklch(0.96 0.03 90) 0%, oklch(0.9 0.04 82) 100%)",
+              }}
             >
-              ×
-            </button>
-            <p className="text-xs uppercase tracking-[0.35em] text-matcha-deep/70">
+              <button
+                onClick={() => setPeek(false)}
+                aria-label="Close menu"
+                className="absolute right-2 top-2 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-parchment/95 text-wood-deep shadow hover:bg-parchment focus:outline-none"
+                style={{ fontFamily: "var(--font-hand)", fontSize: "1rem", lineHeight: 1 }}
+              >
+                ×
+              </button>
+              <p className="text-xs uppercase tracking-[0.35em] text-matcha-deep/70">
                 ON THE MENU
               </p>
               <div className="mx-auto mt-3 h-px w-12 bg-wood/40" />
