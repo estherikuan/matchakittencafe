@@ -7,6 +7,7 @@ import lofiTrack from "@/assets/lofi-nemuko.mp3.asset.json";
 import meowSound from "@/assets/cat-meow.mp3.asset.json";
 import recordImage from "@/assets/record-player.webp.asset.json";
 import kittenWave from "@/assets/kitten-wave.mp4.asset.json";
+import footstepsSound from "@/assets/footsteps-walking.mp3.asset.json";
 
 type Props = { onEnter: () => void };
 
