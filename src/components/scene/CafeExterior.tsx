@@ -7,6 +7,7 @@ import lofiTrack from "@/assets/lofi-nemuko.mp3.asset.json";
 import meowSound from "@/assets/cat-meow.mp3.asset.json";
 import recordImage from "@/assets/record-player.webp.asset.json";
 import kittenWave from "@/assets/kitten-wave.mp4.asset.json";
+import footstepsSound from "@/assets/footsteps-walking.mp3.asset.json";
 
 type Props = { onEnter: () => void };
 
@@ -16,10 +17,13 @@ export function CafeExterior({ onEnter }: Props) {
   const [playingWave, setPlayingWave] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const waveRef = useRef<HTMLVideoElement | null>(null);
+  const footstepsRef = useRef<HTMLAudioElement | null>(null);
+  const footstepsPlayed = useRef(false);
 
   const startEnter = () => {
     setPeek(false);
     setPlayingWave(true);
+    footstepsPlayed.current = false;
     const a = audioRef.current;
     if (a) a.pause();
     const v = waveRef.current;
@@ -29,6 +33,17 @@ export function CafeExterior({ onEnter }: Props) {
     }
     v.currentTime = 0;
     v.play().catch(() => onEnter());
+  };
+
+  const handleVideoTimeUpdate = () => {
+    const v = waveRef.current;
+    const f = footstepsRef.current;
+    if (!v || !f) return;
+    if (!footstepsPlayed.current && v.currentTime >= 2) {
+      footstepsPlayed.current = true;
+      f.currentTime = 0;
+      f.play().catch(() => {});
+    }
   };
 
   useEffect(() => {
@@ -76,6 +91,7 @@ export function CafeExterior({ onEnter }: Props) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       <audio ref={audioRef} src={lofiTrack.url} loop preload="auto" />
+      <audio ref={footstepsRef} src={footstepsSound.url} preload="auto" />
       <div
         className="absolute inset-0 -z-10"
         style={{
@@ -142,6 +158,7 @@ export function CafeExterior({ onEnter }: Props) {
             src={kittenWave.url}
             playsInline
             preload="auto"
+            onTimeUpdate={handleVideoTimeUpdate}
             onEnded={onEnter}
             aria-hidden={!playingWave}
             className={`pointer-events-none absolute left-0 top-0 block h-auto w-full select-none rounded-2xl transition-opacity duration-300 portrait:left-1/2 portrait:top-1/2 portrait:h-full portrait:w-auto portrait:max-w-none portrait:-translate-x-[60%] portrait:-translate-y-1/2 sm:portrait:left-0 sm:portrait:top-0 sm:portrait:h-auto sm:portrait:w-full sm:portrait:max-w-none sm:portrait:translate-x-0 sm:portrait:translate-y-0 ${playingWave ? "z-30 opacity-100" : "opacity-0"}`}
