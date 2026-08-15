@@ -91,6 +91,7 @@ export function CafeExterior({ onEnter }: Props) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       <audio ref={audioRef} src={lofiTrack.url} loop preload="auto" />
+      <audio ref={footstepsRef} src={footstepsSound.url} preload="auto" />
       <div
         className="absolute inset-0 -z-10"
         style={{
