@@ -667,16 +667,16 @@ export function CafeInterior({ onLeave }: Props) {
               {selected.id === "chaday" && (
                 <div className="mt-5 flex justify-center">
                   <div
-                    className="relative w-[300px] max-w-full aspect-[10/17] border-8 border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
-                    style={{ borderRadius: "2rem" }}
+                    className="relative w-[225px] max-w-full aspect-[1/2] border-[6px] border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
+                    style={{ borderRadius: "1.5rem" }}
                   >
                     <span
                       aria-hidden
-                      className="absolute left-1/2 top-2 z-10 h-[6px] w-[110px] -translate-x-1/2 rounded-full bg-wood-deep"
+                      className="absolute left-1/2 top-2 z-10 h-[6px] w-[85px] -translate-x-1/2 rounded-full bg-wood-deep"
                     />
                     <div
                       className="h-full w-full overflow-hidden"
-                      style={{ borderRadius: "1.5rem" }}
+                      style={{ borderRadius: "1.125rem" }}
                     >
                       <video
                         src={chadayDemo.url}
