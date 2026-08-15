@@ -695,10 +695,10 @@ export function CafeInterior({ onLeave }: Props) {
                 <div className="mt-5 mb-2 flex justify-center">
                   <div
                     className="relative flex w-[560px] max-w-full flex-col border-[6px] border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
-                    style={{ borderRadius: "1.75rem", aspectRatio: "1958 / 1290" }}
+                    style={{ borderRadius: "1.75rem" }}
                   >
                     <div
-                      className="flex h-[20px] items-center gap-1.5 bg-wood px-3"
+                      className="flex h-[20px] shrink-0 items-center gap-1.5 bg-wood px-3"
                       style={{
                         borderTopLeftRadius: "1.75rem",
                         borderTopRightRadius: "1.75rem",
@@ -709,7 +709,7 @@ export function CafeInterior({ onLeave }: Props) {
                       <span aria-hidden className="h-2 w-2 rounded-full bg-cream/50" />
                     </div>
                     <div
-                      className="relative flex-1 overflow-hidden"
+                      className="relative w-full overflow-hidden aspect-[1958/1290]"
                       style={{
                         borderBottomLeftRadius: "1.75rem",
                         borderBottomRightRadius: "1.75rem",
