@@ -41,7 +41,7 @@ const MENU: MenuItem[] = [
     href: "https://portalcourtyard.com/",
     external: true,
     description:
-      "A full site migration for a local bnb — 100+ pages moved from a legacy platform in 8 weeks. I prototyped in Lovable, built custom blog functionality in Cursor, and launched the final site on Squarespace.",
+      "A full site design for a local bnb completed in 20 hours. I designed and hosted directly in Lovable — unlockomg new revenue stream and saving the hosts 10% every time when guests booked directly through the website",
   },
   {
     id: "flowforger",
