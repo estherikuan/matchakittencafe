@@ -670,7 +670,7 @@ export function CafeInterior({ onLeave }: Props) {
                   />
                 </div>
               )}
-              {selected.external && selected.description ? (
+              {selected.description ? (
                 <div className="mt-8 text-left text-wood-deep/80" style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
                   {selected.description}
                 </div>
@@ -704,6 +704,16 @@ export function CafeInterior({ onLeave }: Props) {
                   >
                     Visit {selected.title}
                     <ArrowUpRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
+                  </a>
+                )}
+                {selected.id === "popup" && (
+                  <a
+                    href="mailto:collab@chaday.app?subject=Matcha%20Pop-Up%20Inquiry"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-wood-deep px-5 py-2 text-parchment shadow-md transition hover:-translate-y-0.5 hover:bg-wood-deep/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
+                    style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
+                  >
+                    Inquire via email
+                    <ArrowRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
                   </a>
                 )}
               </div>
