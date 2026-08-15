@@ -9,6 +9,7 @@ import lovableIcon from "@/assets/lovable-icon.webp.asset.json";
 import claudeIcon from "@/assets/claude-icon.webp.asset.json";
 import recordImage from "@/assets/record-player.webp.asset.json";
 import estherPhoto from "@/assets/about_barista.png.asset.json";
+import chadayDemo from "@/assets/chaday-demo.mp4.asset.json";
 import specialImage from "@/assets/mango-matcha-special.png.asset.json";
 import paperRustle from "@/assets/paper-rustle.mp3.asset.json";
 import jarLid from "@/assets/jar-lid.mp3.asset.json";
@@ -256,13 +257,6 @@ export function CafeInterior({ onLeave }: Props) {
                           <span className="min-w-0 break-words underline decoration-parchment/0 decoration-1 underline-offset-4 transition-all group-hover:decoration-parchment/60">
                             {m.title}
                           </span>
-                          {m.external && (
-                            <ArrowUpRight
-                              aria-hidden
-                              className="inline-block h-[0.9em] w-[0.9em] shrink-0 self-center text-parchment/50"
-                              strokeWidth={2}
-                            />
-                          )}
                         </span>
                         <span
                           className="ml-2 sm:ml-3 block min-w-0 text-[clamp(0.55rem,1.5vw,0.875rem)] portrait:text-[clamp(0.8rem,2.2vw,1.05rem)] leading-tight text-parchment/55"
@@ -668,6 +662,32 @@ export function CafeInterior({ onLeave }: Props) {
                       width: "clamp(9rem, 40vw, 17.1875rem)",
                     }}
                   />
+                </div>
+              )}
+              {selected.id === "chaday" && (
+                <div className="mt-5 flex justify-center">
+                  <div
+                    className="relative h-[170px] max-w-full border-4 border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
+                    style={{ width: "100px", borderRadius: "1.25rem" }}
+                  >
+                    <span
+                      aria-hidden
+                      className="absolute left-1/2 top-2 z-10 h-1 w-10 -translate-x-1/2 rounded-full bg-wood-deep"
+                    />
+                    <div
+                      className="h-full w-full overflow-hidden"
+                      style={{ borderRadius: "1rem" }}
+                    >
+                      <video
+                        src={chadayDemo.url}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  </div>
                 </div>
               )}
               {selected.description ? (
