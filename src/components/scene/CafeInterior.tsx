@@ -668,7 +668,7 @@ export function CafeInterior({ onLeave }: Props) {
                 <div className="mt-5 flex justify-center">
                   <div
                     className="relative w-[225px] max-w-full aspect-[1/2] border-[6px] border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
-                    style={{ borderRadius: "1.5rem" }}
+                    style={{ borderRadius: "1.75rem" }}
                   >
                     <span
                       aria-hidden
@@ -676,7 +676,7 @@ export function CafeInterior({ onLeave }: Props) {
                     />
                     <div
                       className="h-full w-full overflow-hidden"
-                      style={{ borderRadius: "1.125rem" }}
+                      style={{ borderRadius: "1.375rem" }}
                     >
                       <video
                         src={chadayDemo.url}
