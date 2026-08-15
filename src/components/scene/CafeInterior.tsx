@@ -10,6 +10,7 @@ import claudeIcon from "@/assets/claude-icon.webp.asset.json";
 import recordImage from "@/assets/record-player.webp.asset.json";
 import estherPhoto from "@/assets/about_barista.png.asset.json";
 import chadayDemo from "@/assets/chaday-demo.mp4.asset.json";
+import portalDemo from "@/assets/portal-demo.mp4.asset.json";
 import specialImage from "@/assets/mango-matcha-special.png.asset.json";
 import paperRustle from "@/assets/paper-rustle.mp3.asset.json";
 import jarLid from "@/assets/jar-lid.mp3.asset.json";
@@ -680,6 +681,43 @@ export function CafeInterior({ onLeave }: Props) {
                     >
                       <video
                         src={chadayDemo.url}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+              {selected.id === "portal" && (
+                <div className="mt-5 flex justify-center">
+                  <div
+                    className="relative w-[280px] max-w-full aspect-[16/10] border-[6px] border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
+                    style={{ borderRadius: "1.75rem" }}
+                  >
+                    <div
+                      className="absolute inset-x-0 top-0 z-10 flex h-5 items-center gap-1.5 bg-wood px-3"
+                      style={{
+                        borderTopLeftRadius: "1.75rem",
+                        borderTopRightRadius: "1.75rem",
+                      }}
+                    >
+                      <span aria-hidden className="h-2 w-2 rounded-full bg-cream" />
+                      <span aria-hidden className="h-2 w-2 rounded-full bg-cream/70" />
+                      <span aria-hidden className="h-2 w-2 rounded-full bg-cream/50" />
+                    </div>
+                    <div
+                      className="absolute inset-x-0 bottom-0 overflow-hidden"
+                      style={{
+                        top: "1.25rem",
+                        borderBottomLeftRadius: "1.75rem",
+                        borderBottomRightRadius: "1.75rem",
+                      }}
+                    >
+                      <video
+                        src={portalDemo.url}
                         autoPlay
                         muted
                         loop
