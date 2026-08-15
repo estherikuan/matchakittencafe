@@ -158,6 +158,7 @@ export function CafeExterior({ onEnter }: Props) {
             src={kittenWave.url}
             playsInline
             preload="auto"
+            onTimeUpdate={handleVideoTimeUpdate}
             onEnded={onEnter}
             aria-hidden={!playingWave}
             className={`pointer-events-none absolute left-0 top-0 block h-auto w-full select-none rounded-2xl transition-opacity duration-300 portrait:left-1/2 portrait:top-1/2 portrait:h-full portrait:w-auto portrait:max-w-none portrait:-translate-x-[60%] portrait:-translate-y-1/2 sm:portrait:left-0 sm:portrait:top-0 sm:portrait:h-auto sm:portrait:w-full sm:portrait:max-w-none sm:portrait:translate-x-0 sm:portrait:translate-y-0 ${playingWave ? "z-30 opacity-100" : "opacity-0"}`}
