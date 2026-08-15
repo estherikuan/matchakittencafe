@@ -23,6 +23,7 @@ export function CafeExterior({ onEnter }: Props) {
   const startEnter = () => {
     setPeek(false);
     setPlayingWave(true);
+    footstepsPlayed.current = false;
     const a = audioRef.current;
     if (a) a.pause();
     const v = waveRef.current;
@@ -32,6 +33,17 @@ export function CafeExterior({ onEnter }: Props) {
     }
     v.currentTime = 0;
     v.play().catch(() => onEnter());
+  };
+
+  const handleVideoTimeUpdate = () => {
+    const v = waveRef.current;
+    const f = footstepsRef.current;
+    if (!v || !f) return;
+    if (!footstepsPlayed.current && v.currentTime >= 2) {
+      footstepsPlayed.current = true;
+      f.currentTime = 0;
+      f.play().catch(() => {});
+    }
   };
 
   useEffect(() => {
