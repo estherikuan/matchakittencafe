@@ -17,6 +17,8 @@ export function CafeExterior({ onEnter }: Props) {
   const [playingWave, setPlayingWave] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const waveRef = useRef<HTMLVideoElement | null>(null);
+  const footstepsRef = useRef<HTMLAudioElement | null>(null);
+  const footstepsPlayed = useRef(false);
 
   const startEnter = () => {
     setPeek(false);
