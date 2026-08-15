@@ -32,7 +32,7 @@ const MENU: MenuItem[] = [
     href: "https://chaday.app",
     external: true,
     description:
-      "Chaday is my matcha database and journal — a place for enthusiasts to log, rate, and discover matcha. I designed and built it solo, using Claude and Lovable to go from idea to a working app fast.",
+      "Chaday is a matcha database and journal — a place for enthusiasts to log, rate, and discover matcha. I designed and built it solo, using Claude and Lovable to go from idea to a working app fast. Currently growing organic users through founder-led content.",
   },
   {
     id: "portal",
