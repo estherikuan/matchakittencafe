@@ -10,6 +10,7 @@ import claudeIcon from "@/assets/claude-icon.webp.asset.json";
 import recordImage from "@/assets/record-player.webp.asset.json";
 import estherPhoto from "@/assets/about_barista.png.asset.json";
 import chadayDemo from "@/assets/chaday-demo.mp4.asset.json";
+import portalDemo from "@/assets/portal-demo.mp4.asset.json";
 import specialImage from "@/assets/mango-matcha-special.png.asset.json";
 import paperRustle from "@/assets/paper-rustle.mp3.asset.json";
 import jarLid from "@/assets/jar-lid.mp3.asset.json";
