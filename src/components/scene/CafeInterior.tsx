@@ -21,6 +21,7 @@ type MenuItem = {
   sub: string;
   href?: string;
   external?: boolean;
+  description?: string;
 };
 
 const MENU: MenuItem[] = [
@@ -30,6 +31,8 @@ const MENU: MenuItem[] = [
     sub: "web application for matcha enthusiasts",
     href: "https://chaday.app",
     external: true,
+    description:
+      "Chaday is my matcha database and journal — a place for enthusiasts to log, rate, and discover matcha. I designed and built it solo, using Claude and Lovable to go from idea to a working app fast.",
   },
   {
     id: "portal",
@@ -37,6 +40,8 @@ const MENU: MenuItem[] = [
     sub: "web development for local bnb",
     href: "https://portalcourtyard.com/",
     external: true,
+    description:
+      "A full site migration for a local bnb — 100+ pages moved from a legacy platform in 8 weeks. I prototyped in Lovable, built custom blog functionality in Cursor, and launched the final site on Squarespace.",
   },
   {
     id: "flowforger",
@@ -44,6 +49,8 @@ const MENU: MenuItem[] = [
     sub: "AI workflow tool",
     href: "https://asanabuilder-ai.lovable.app",
     external: true,
+    description:
+      "FlowForger is a prototype, not a finished product — an AI workflow tool I built to explore how automation can speed up repetitive planning work, in this case generating structured yoga flows for instructors. It's more a demonstration of how I use AI to build tools that boost efficiency than a polished app.",
   },
   { id: "about", title: "About the barista", sub: "a little note from me" },
 ];
