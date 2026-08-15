@@ -6,13 +6,30 @@ import cafeExterior from "@/assets/cafe-exterior.png";
 import lofiTrack from "@/assets/lofi-nemuko.mp3.asset.json";
 import meowSound from "@/assets/cat-meow.mp3.asset.json";
 import recordImage from "@/assets/record-player.webp.asset.json";
+import kittenWave from "@/assets/kitten-wave.mp4.asset.json";
 
 type Props = { onEnter: () => void };
 
 export function CafeExterior({ onEnter }: Props) {
   const [peek, setPeek] = useState(false);
   const [muted, setMuted] = useState(true);
+  const [playingWave, setPlayingWave] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const waveRef = useRef<HTMLVideoElement | null>(null);
+
+  const startEnter = () => {
+    setPeek(false);
+    setPlayingWave(true);
+    const a = audioRef.current;
+    if (a) a.pause();
+    const v = waveRef.current;
+    if (!v) {
+      onEnter();
+      return;
+    }
+    v.currentTime = 0;
+    v.play().catch(() => onEnter());
+  };
 
   useEffect(() => {
     const a = audioRef.current;
@@ -120,8 +137,18 @@ export function CafeExterior({ onEnter }: Props) {
             draggable={false}
           />
 
+          <video
+            ref={waveRef}
+            src={kittenWave.url}
+            playsInline
+            preload="auto"
+            onEnded={onEnter}
+            aria-hidden={!playingWave}
+            className={`pointer-events-none absolute left-0 top-0 block h-auto w-full select-none rounded-2xl transition-opacity duration-300 portrait:left-1/2 portrait:top-1/2 portrait:h-full portrait:w-auto portrait:max-w-none portrait:-translate-x-[60%] portrait:-translate-y-1/2 sm:portrait:left-0 sm:portrait:top-0 sm:portrait:h-auto sm:portrait:w-full sm:portrait:max-w-none sm:portrait:translate-x-0 sm:portrait:translate-y-0 ${playingWave ? "z-30 opacity-100" : "opacity-0"}`}
+          />
+
           <button
-            onClick={onEnter}
+            onClick={startEnter}
             aria-label="Step inside the café"
             className="group absolute left-[27%] top-[32%] h-[45%] w-[18%] rounded-t-[30%] focus:outline-none"
           >
@@ -288,7 +315,7 @@ export function CafeExterior({ onEnter }: Props) {
                 </li>
               </ul>
               <button
-                onClick={onEnter}
+                onClick={startEnter}
                 className="mt-6 rounded-full bg-matcha-deep px-5 py-2 text-xs uppercase tracking-widest text-parchment shadow-md transition hover:brightness-110"
               >
                 <span className="inline-flex items-center justify-center gap-1.5">
