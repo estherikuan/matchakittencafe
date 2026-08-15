@@ -52,6 +52,13 @@ const MENU: MenuItem[] = [
     description:
       "FlowForger is a prototype, not a finished product — an AI workflow tool I built to explore how automation can speed up repetitive planning work, in this case generating structured yoga flows for instructors. It's more a demonstration of how I use AI to build tools that boost efficiency than a polished app.",
   },
+  {
+    id: "popup",
+    title: "Onsite Matcha Bar",
+    sub: "custom matcha service for events",
+    description:
+      "I run an onsite matcha bar for startups and private events — high-quality matcha drinks made to order, customized to your group's taste and needs. Great for office wellness days, offsites, or private gatherings.",
+  },
   { id: "about", title: "About the barista", sub: "a little note from me" },
 ];
 
@@ -203,7 +210,7 @@ export function CafeInterior({ onLeave }: Props) {
 
             {/* Menu overlay — sits on the blank chalkboard in the painting */}
             <div
-              className="absolute grid gap-2 text-left overflow-hidden left-[6.5%] top-[8%] w-[38.5%] h-[32%] portrait:!left-[6%] portrait:!top-[9%] portrait:!w-[81%] portrait:!h-[26%]"
+              className="absolute grid gap-2 text-left overflow-hidden left-[6.5%] top-[8%] w-[38.5%] h-[34%] portrait:!left-[6%] portrait:!top-[9%] portrait:!w-[81%] portrait:!h-[28%]"
               style={{ alignContent: "center" }}
             >
               <motion.p
@@ -226,7 +233,8 @@ export function CafeInterior({ onLeave }: Props) {
                     chaday: "col-start-1 row-start-1",
                     portal: "col-start-1 row-start-2",
                     flowforger: "col-start-2 row-start-1",
-                    about: "col-start-2 row-start-2",
+                    popup: "col-start-2 row-start-2",
+                    about: "col-start-2 row-start-3",
                   };
                   return (
                     <motion.li
@@ -662,7 +670,7 @@ export function CafeInterior({ onLeave }: Props) {
                   />
                 </div>
               )}
-              {selected.external && selected.description ? (
+              {selected.description ? (
                 <div className="mt-8 text-left text-wood-deep/80" style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
                   {selected.description}
                 </div>
@@ -696,6 +704,16 @@ export function CafeInterior({ onLeave }: Props) {
                   >
                     Visit {selected.title}
                     <ArrowUpRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
+                  </a>
+                )}
+                {selected.id === "popup" && (
+                  <a
+                    href="mailto:collab@chaday.app?subject=Matcha%20Pop-Up%20Inquiry"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-wood-deep px-5 py-2 text-parchment shadow-md transition hover:-translate-y-0.5 hover:bg-wood-deep/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
+                    style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
+                  >
+                    Inquire via email
+                    <ArrowRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
                   </a>
                 )}
               </div>
