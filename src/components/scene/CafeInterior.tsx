@@ -232,10 +232,10 @@ export function CafeInterior({ onLeave }: Props) {
                 {MENU.map((m, i) => {
                   const pos: Record<string, string> = {
                     chaday: "col-start-1 row-start-1",
-                    portal: "col-start-2 row-start-1",
-                    popup: "col-start-1 row-start-2",
-                    flowforger: "col-start-2 row-start-2",
-                    about: "col-start-1 row-start-3",
+                    portal: "col-start-1 row-start-2",
+                    flowforger: "col-start-1 row-start-3",
+                    popup: "col-start-2 row-start-1",
+                    about: "col-start-2 row-start-2",
                   };
                   return (
                     <motion.li
