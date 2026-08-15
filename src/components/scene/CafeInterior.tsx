@@ -237,9 +237,7 @@ export function CafeInterior({ onLeave }: Props) {
                       className={`${pos[m.id]} min-w-0`}
                     >
                       <button
-                        onClick={() =>
-                          m.external && m.href ? window.open(m.href, "_blank", "noopener,noreferrer") : setSelected(m)
-                        }
+                        onClick={() => setSelected(m)}
                         className="group block w-full min-w-0 rounded-md px-1 py-0.5 sm:px-2 sm:py-1 text-left text-parchment/95 transition hover:bg-parchment/10 focus:bg-parchment/10 focus:outline-none"
                       >
                         <span
