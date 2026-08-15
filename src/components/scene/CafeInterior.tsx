@@ -631,7 +631,7 @@ export function CafeInterior({ onLeave }: Props) {
               animate={{ y: 0, scale: 1, opacity: 1, rotate: 0 }}
               exit={{ y: 20, scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 22 }}
-              className="relative max-h-[90vh] w-full max-w-md overflow-y-auto rounded-xl p-5 text-center shadow-2xl sm:p-8"
+              className={`relative max-h-[90vh] w-full overflow-y-auto rounded-xl p-5 text-center shadow-2xl sm:p-8 ${selected.id === "portal" ? "max-w-2xl" : "max-w-md"}`}
               style={{
                 background: "radial-gradient(circle at 20% 10%, oklch(0.96 0.03 90) 0%, oklch(0.9 0.04 82) 100%)",
               }}
@@ -692,13 +692,13 @@ export function CafeInterior({ onLeave }: Props) {
                 </div>
               )}
               {selected.id === "portal" && (
-                <div className="mt-5 flex justify-center">
+                <div className="mt-5 mb-2 flex justify-center">
                   <div
-                    className="relative w-[280px] max-w-full aspect-[16/10] border-[6px] border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
-                    style={{ borderRadius: "1.75rem" }}
+                    className="relative flex w-[560px] max-w-full flex-col border-[6px] border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
+                    style={{ borderRadius: "1.75rem", aspectRatio: "1958 / 1290" }}
                   >
                     <div
-                      className="absolute inset-x-0 top-0 z-10 flex h-5 items-center gap-1.5 bg-wood px-3"
+                      className="flex h-[20px] items-center gap-1.5 bg-wood px-3"
                       style={{
                         borderTopLeftRadius: "1.75rem",
                         borderTopRightRadius: "1.75rem",
@@ -709,9 +709,8 @@ export function CafeInterior({ onLeave }: Props) {
                       <span aria-hidden className="h-2 w-2 rounded-full bg-cream/50" />
                     </div>
                     <div
-                      className="absolute inset-x-0 bottom-0 overflow-hidden"
+                      className="relative flex-1 overflow-hidden"
                       style={{
-                        top: "1.25rem",
                         borderBottomLeftRadius: "1.75rem",
                         borderBottomRightRadius: "1.75rem",
                       }}
