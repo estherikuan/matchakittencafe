@@ -691,6 +691,53 @@ export function CafeInterior({ onLeave }: Props) {
                   </div>
                 </div>
               )}
+              {selected.id === "portal" && (
+                <div className="mt-5 flex justify-center">
+                  <div
+                    className="relative w-[280px] max-w-full aspect-[16/10] border-[6px] border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
+                    style={{ borderRadius: "1.75rem" }}
+                  >
+                    <div
+                      className="absolute inset-x-0 top-0 z-10 flex h-5 items-center gap-1.5 px-3"
+                      style={{
+                        borderTopLeftRadius: "1.75rem",
+                        borderTopRightRadius: "1.75rem",
+                      }}
+                    >
+                      <span aria-hidden className="h-2 w-2 rounded-full bg-cream" />
+                      <span aria-hidden className="h-2 w-2 rounded-full bg-cream/70" />
+                      <span aria-hidden className="h-2 w-2 rounded-full bg-cream/50" />
+                    </div>
+                    <div
+                      className="h-full w-full overflow-hidden"
+                      style={{
+                        borderRadius: "1.75rem",
+                      }}
+                    >
+                      <div
+                        className="h-full w-full overflow-hidden"
+                        style={{
+                          borderTopLeftRadius: "1.75rem",
+                          borderTopRightRadius: "1.75rem",
+                          borderBottomLeftRadius: "1.375rem",
+                          borderBottomRightRadius: "1.375rem",
+                          marginTop: "1.25rem",
+                          height: "calc(100% - 1.25rem)",
+                        }}
+                      >
+                        <video
+                          src={portalDemo.url}
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
               {selected.description ? (
                 <div className="mt-8 text-left text-wood-deep/80" style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
                   {selected.description}
