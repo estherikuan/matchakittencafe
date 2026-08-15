@@ -698,7 +698,7 @@ export function CafeInterior({ onLeave }: Props) {
                     style={{ borderRadius: "1.75rem" }}
                   >
                     <div
-                      className="absolute inset-x-0 top-0 z-10 flex h-5 items-center gap-1.5 px-3"
+                      className="absolute inset-x-0 top-0 z-10 flex h-5 items-center gap-1.5 bg-wood px-3"
                       style={{
                         borderTopLeftRadius: "1.75rem",
                         borderTopRightRadius: "1.75rem",
@@ -709,31 +709,21 @@ export function CafeInterior({ onLeave }: Props) {
                       <span aria-hidden className="h-2 w-2 rounded-full bg-cream/50" />
                     </div>
                     <div
-                      className="h-full w-full overflow-hidden"
+                      className="absolute inset-x-0 bottom-0 overflow-hidden"
                       style={{
-                        borderRadius: "1.75rem",
+                        top: "1.25rem",
+                        borderBottomLeftRadius: "1.75rem",
+                        borderBottomRightRadius: "1.75rem",
                       }}
                     >
-                      <div
-                        className="h-full w-full overflow-hidden"
-                        style={{
-                          borderTopLeftRadius: "1.75rem",
-                          borderTopRightRadius: "1.75rem",
-                          borderBottomLeftRadius: "1.375rem",
-                          borderBottomRightRadius: "1.375rem",
-                          marginTop: "1.25rem",
-                          height: "calc(100% - 1.25rem)",
-                        }}
-                      >
-                        <video
-                          src={portalDemo.url}
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
+                      <video
+                        src={portalDemo.url}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="h-full w-full object-cover"
+                      />
                     </div>
                   </div>
                 </div>
