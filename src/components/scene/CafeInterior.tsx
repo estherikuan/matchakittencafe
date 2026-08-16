@@ -632,7 +632,7 @@ export function CafeInterior({ onLeave }: Props) {
               animate={{ y: 0, scale: 1, opacity: 1, rotate: 0 }}
               exit={{ y: 20, scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 22 }}
-              className={`relative max-h-[90vh] w-full overflow-y-auto rounded-xl p-5 text-center shadow-2xl sm:p-8 ${selected.id === "portal" ? "max-w-2xl" : "max-w-md"}`}
+              className={`relative max-h-[90vh] w-full overflow-y-auto rounded-xl p-5 text-center shadow-2xl sm:p-8 ${selected.id === "portal" ? "max-w-2xl" : selected.id === "popup" ? "max-w-[560px]" : "max-w-md"}`}
               style={{
                 background: "radial-gradient(circle at 20% 10%, oklch(0.96 0.03 90) 0%, oklch(0.9 0.04 82) 100%)",
               }}
