@@ -12,6 +12,7 @@ import estherPhoto from "@/assets/about_barista.png.asset.json";
 import chadayDemo from "@/assets/chaday-demo.mp4.asset.json";
 import portalDemo from "@/assets/portal-demo.mp4.asset.json";
 import specialImage from "@/assets/mango-matcha-special.png.asset.json";
+import matchaBar from "@/assets/matcha_bar.png.asset.json";
 import paperRustle from "@/assets/paper-rustle.mp3.asset.json";
 import jarLid from "@/assets/jar-lid.mp3.asset.json";
 
@@ -725,6 +726,15 @@ export function CafeInterior({ onLeave }: Props) {
                       />
                     </div>
                   </div>
+                </div>
+              )}
+              {selected.id === "popup" && (
+                <div className="mt-5 flex justify-center">
+                  <img
+                    src={matchaBar.url}
+                    alt="Onsite matcha bar setup at an event"
+                    className="w-[280px] max-w-full rounded-xl shadow-[0_10px_24px_rgba(30,20,10,0.35)]"
+                  />
                 </div>
               )}
               {selected.description ? (
