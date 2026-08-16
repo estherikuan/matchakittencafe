@@ -733,7 +733,7 @@ export function CafeInterior({ onLeave }: Props) {
                   <img
                     src={matchaBar.url}
                     alt="Onsite matcha bar setup at an event"
-                    className="w-[1120px] max-w-full"
+                    className="w-[2240px] max-w-full"
                   />
                 </div>
               )}
