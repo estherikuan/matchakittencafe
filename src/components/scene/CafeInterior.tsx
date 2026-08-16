@@ -728,6 +728,15 @@ export function CafeInterior({ onLeave }: Props) {
                   </div>
                 </div>
               )}
+              {selected.id === "popup" && (
+                <div className="mt-5 flex justify-center">
+                  <img
+                    src={matchaBar.url}
+                    alt="Onsite matcha bar setup at an event"
+                    className="w-[280px] max-w-full rounded-xl shadow-[0_10px_24px_rgba(30,20,10,0.35)]"
+                  />
+                </div>
+              )}
               {selected.description ? (
                 <div className="mt-8 text-left text-wood-deep/80" style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
                   {selected.description}
