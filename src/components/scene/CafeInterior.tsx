@@ -746,7 +746,7 @@ export function CafeInterior({ onLeave }: Props) {
                   *hands over a matcha*
                   <br />
                   <br />
-                  <div style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
+                  <div className="text-left" style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
                     Hi there, I am Esther aka Matcha Kitten.
                     <br />
                     I design and build products using AI tools to go from 0 →1.&nbsp;
