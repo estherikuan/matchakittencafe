@@ -5,14 +5,11 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import cafeInterior from "@/assets/cafe-interior.png";
 import lofiTrack from "@/assets/cutie-japan-lofi.mp3.asset.json";
-import lovableIcon from "@/assets/lovable-icon.webp.asset.json";
-import claudeIcon from "@/assets/claude-icon.webp.asset.json";
 import recordImage from "@/assets/record-player.webp.asset.json";
 import estherPhoto from "@/assets/about_barista.png.asset.json";
-import chadayDemo from "@/assets/chaday-demo.mp4.asset.json";
-import portalDemo from "@/assets/portal-demo.mp4.asset.json";
 import specialImage from "@/assets/mango-matcha-special.png.asset.json";
 import matchaBar from "@/assets/matcha_bar.png.asset.json";
+import sampleMenuImage from "@/assets/sample-menu.png";
 import paperRustle from "@/assets/paper-rustle.mp3.asset.json";
 import jarLid from "@/assets/jar-lid.mp3.asset.json";
 
@@ -29,39 +26,13 @@ type MenuItem = {
 
 const MENU: MenuItem[] = [
   {
-    id: "chaday",
-    title: "chaday.app",
-    sub: "application for matcha enthusiasts",
-    href: "https://chaday.app",
-    external: true,
-    description:
-      "Chaday is a matcha database and journal — a place for enthusiasts to log, rate, and discover matcha. I designed and built it solo, using Claude and Lovable to go from idea to a working app fast. Currently growing organic users through founder-led content.",
-  },
-  {
-    id: "portal",
-    title: "Portal Courtyard",
-    sub: "web development for local bnb",
-    href: "https://portalcourtyard.com/",
-    external: true,
-    description:
-      "A full site design for a local bnb completed in 20 hours. I designed and hosted directly in Lovable — unlockomg new revenue stream and saving the hosts 10% every time when guests book directly through the website",
-  },
-  {
-    id: "flowforger",
-    title: "FlowForger",
-    sub: "AI workflow tool",
-    href: "https://asanabuilder-ai.lovable.app",
-    external: true,
-    description:
-      "FlowForger is an AI workflow tool I built to explore how automation can speed up repetitive planning work, in this case generating structured yoga flows for instructors. It's more a demonstration of how I use AI to build tools that boost efficiency than a polished app.",
-  },
-  {
     id: "popup",
     title: "Onsite Matcha Bar",
     sub: "custom matcha service for events",
     description:
       "I run an onsite matcha bar for startups and private events — high-quality matcha drinks made to order, customized to your group's taste and needs. Great for office wellness days, offsites, or private gatherings.",
   },
+  { id: "sampleMenu", title: "Sample Menu", sub: "a peek at what's poured" },
   { id: "about", title: "About the barista", sub: "a little note from me" },
 ];
 
@@ -233,11 +204,9 @@ export function CafeInterior({ onLeave }: Props) {
               <ul className="mt-1 grid grid-cols-2 gap-x-2 sm:gap-x-3 gap-y-0.5 sm:gap-y-1 ml-1 sm:ml-[18px] mt-1 sm:mt-[18px] pr-3">
                 {MENU.map((m, i) => {
                   const pos: Record<string, string> = {
-                    chaday: "col-start-1 row-start-1",
-                    portal: "col-start-1 row-start-2",
-                    flowforger: "col-start-1 row-start-3",
-                    popup: "col-start-2 row-start-1",
-                    about: "col-start-2 row-start-2",
+                    popup: "col-start-1 row-start-1",
+                    sampleMenu: "col-start-1 row-start-2",
+                    about: "col-start-2 row-start-1",
                   };
                   return (
                     <motion.li
@@ -299,30 +268,6 @@ export function CafeInterior({ onLeave }: Props) {
                 />
               </span>
             </motion.a>
-
-            {/* Bowls & cup on second shelf — reveal the tools I build with */}
-            <div
-              className="group absolute z-20 portrait:hidden"
-              style={{ left: "58%", top: "28%", width: "32%", height: "12%" }}
-              tabIndex={0}
-              aria-label="Tools I build with"
-            >
-              <span
-                className="pointer-events-none absolute left-1/2 -top-3 -translate-x-1/2 -translate-y-full flex w-max items-center gap-3 whitespace-nowrap rounded-2xl bg-parchment py-3 pl-5 pr-6 text-wood-deep opacity-0 shadow-[0_10px_24px_rgba(30,20,10,0.35)] transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-100 group-focus-visible:opacity-100"
-                style={{ fontFamily: "var(--font-hand)", fontSize: "1rem" }}
-              >
-                <span className="mr-1 inline-flex items-center gap-1">
-                  tools I build with
-                  <ArrowRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
-                </span>
-                <img src={lovableIcon.url} alt="Lovable" className="h-8 w-8 shrink-0 rounded-md" />
-                <img src={claudeIcon.url} alt="Claude" className="h-8 w-8 shrink-0 rounded-md" />
-                <span
-                  aria-hidden
-                  className="absolute left-1/2 top-full -translate-x-1/2 -translate-y-1/2 rotate-45 h-3 w-3 bg-parchment"
-                />
-              </span>
-            </div>
 
             {/* Small "today's special" chalkboard hotspot — left of the kitten */}
             <button
@@ -632,7 +577,7 @@ export function CafeInterior({ onLeave }: Props) {
               animate={{ y: 0, scale: 1, opacity: 1, rotate: 0 }}
               exit={{ y: 20, scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 22 }}
-              className={`relative max-h-[90vh] w-full overflow-y-auto rounded-xl p-5 text-center shadow-2xl sm:p-8 ${selected.id === "portal" ? "max-w-2xl" : selected.id === "popup" ? "max-w-[560px]" : "max-w-md"}`}
+              className={`relative max-h-[90vh] w-full overflow-y-auto rounded-xl p-5 text-center shadow-2xl sm:p-8 ${selected.id === "popup" ? "max-w-[560px]" : "max-w-md"}`}
               style={{
                 background: "radial-gradient(circle at 20% 10%, oklch(0.96 0.03 90) 0%, oklch(0.9 0.04 82) 100%)",
               }}
@@ -666,68 +611,6 @@ export function CafeInterior({ onLeave }: Props) {
                   />
                 </div>
               )}
-              {selected.id === "chaday" && (
-                <div className="mt-5 flex justify-center">
-                  <div
-                    className="relative w-[225px] max-w-full aspect-[10/17] border-[6px] border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
-                    style={{ borderRadius: "1.75rem" }}
-                  >
-                    <span
-                      aria-hidden
-                      className="absolute left-1/2 top-2 z-10 h-[6px] w-[85px] -translate-x-1/2 rounded-full bg-wood-deep"
-                    />
-                    <div
-                      className="h-full w-full overflow-hidden"
-                      style={{ borderRadius: "1.375rem" }}
-                    >
-                      <video
-                        src={chadayDemo.url}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-              {selected.id === "portal" && (
-                <div className="mt-5 mb-2 flex justify-center">
-                  <div
-                    className="relative flex w-[560px] max-w-full flex-col border-[6px] border-wood-deep bg-wood-deep shadow-[0_14px_30px_rgba(30,20,10,0.35)]"
-                    style={{ borderRadius: "1.75rem" }}
-                  >
-                    <div
-                      className="flex h-[20px] shrink-0 items-center gap-1.5 bg-wood px-3"
-                      style={{
-                        borderTopLeftRadius: "1.75rem",
-                        borderTopRightRadius: "1.75rem",
-                      }}
-                    >
-                      <span aria-hidden className="h-2 w-2 rounded-full bg-cream" />
-                      <span aria-hidden className="h-2 w-2 rounded-full bg-cream/70" />
-                      <span aria-hidden className="h-2 w-2 rounded-full bg-cream/50" />
-                    </div>
-                    <div
-                      className="relative w-full overflow-hidden aspect-[1958/1290]"
-                      style={{
-                        borderBottomLeftRadius: "1.75rem",
-                        borderBottomRightRadius: "1.75rem",
-                      }}
-                    >
-                      <video
-                        src={portalDemo.url}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
               {selected.id === "popup" && (
                 <div className="mt-5 flex justify-center">
                   <img
@@ -737,11 +620,20 @@ export function CafeInterior({ onLeave }: Props) {
                   />
                 </div>
               )}
+              {selected.id === "sampleMenu" && (
+                <div className="mt-5 flex justify-center">
+                  <img
+                    src={sampleMenuImage}
+                    alt="Matcha Kitten sample menu — cookie butter matcha, matcha latte, pandan matcha latte"
+                    className="w-full max-w-[420px] rounded-lg shadow-md"
+                  />
+                </div>
+              )}
               {selected.description ? (
                 <div className="mt-8 text-left text-wood-deep/80" style={{ fontFamily: "var(--font-body)", fontSize: "1rem" }}>
                   {selected.description}
                 </div>
-              ) : (
+              ) : selected.id === "about" ? (
                 <div className="mt-8 text-wood-deep/80" style={{ fontFamily: "var(--font-hand)", fontSize: "1.1rem" }}>
                   *hands over a matcha*
                   <br />
@@ -752,27 +644,17 @@ export function CafeInterior({ onLeave }: Props) {
                     products, with AI as a creative partner instead of a team.
                   </div>
                 </div>
-              )}
+              ) : null}
               <div className="mt-6 flex flex-col items-center gap-3">
-                {selected.external && selected.href && (
+                {selected.id === "popup" && (
                   <a
-                    href={selected.href}
+                    href="https://estherkuan.notion.site/d6101ef1df6f4d76a98dd6d2baf966ec?pvs=105"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 rounded-full bg-wood-deep px-5 py-2 text-parchment shadow-md transition hover:-translate-y-0.5 hover:bg-wood-deep/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
                     style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
                   >
-                    Visit {selected.title}
-                    <ArrowUpRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
-                  </a>
-                )}
-                {selected.id === "popup" && (
-                  <a
-                    href="mailto:collab@chaday.app?subject=Matcha%20Pop-Up%20Inquiry"
-                    className="inline-flex items-center gap-1.5 rounded-full bg-wood-deep px-5 py-2 text-parchment shadow-md transition hover:-translate-y-0.5 hover:bg-wood-deep/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-lantern/60"
-                    style={{ fontFamily: "var(--font-hand)", fontSize: "1.05rem" }}
-                  >
-                    Inquire via email
+                    Inquire here
                     <ArrowRight aria-hidden className="h-[1em] w-[1em]" strokeWidth={2} />
                   </a>
                 )}

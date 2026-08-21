@@ -303,40 +303,31 @@ export function CafeExterior({ onEnter }: Props) {
               <div className="mx-auto mt-3 h-px w-12 bg-wood/40" />
               <ul className="mt-5 space-y-4">
                 <li>
-                  <a
-                    href="https://chaday.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <span
                     style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }}
-                    className="text-wood-deep underline decoration-matcha-deep/40 decoration-1 underline-offset-4 transition hover:decoration-matcha-deep"
+                    className="text-wood-deep"
                   >
-                    chaday.app
-                  </a>
-                  <p className="text-xs text-wood/70">— web application</p>
+                    Onsite Matcha Bar
+                  </span>
+                  <p className="text-xs text-wood/70">— custom matcha service for events</p>
                 </li>
                 <li>
-                  <a
-                    href="https://portalcourtyard.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <span
                     style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }}
-                    className="text-wood-deep underline decoration-matcha-deep/40 decoration-1 underline-offset-4 transition hover:decoration-matcha-deep"
+                    className="text-wood-deep"
                   >
-                    Portal Courtyard
-                  </a>
-                  <p className="text-xs text-wood/70">— web development</p>
+                    Sample Menu
+                  </span>
+                  <p className="text-xs text-wood/70">— a peek at what's poured</p>
                 </li>
                 <li>
-                  <a
-                    href="https://asanabuilder-ai.lovable.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <span
                     style={{ fontFamily: "var(--font-hand)", fontSize: "1.5rem" }}
-                    className="text-wood-deep underline decoration-matcha-deep/40 decoration-1 underline-offset-4 transition hover:decoration-matcha-deep"
+                    className="text-wood-deep"
                   >
-                    FlowForger
-                  </a>
-                  <p className="text-xs text-wood/70">— AI workflow tool</p>
+                    About the barista
+                  </span>
+                  <p className="text-xs text-wood/70">— a little note from me</p>
                 </li>
               </ul>
               <button
